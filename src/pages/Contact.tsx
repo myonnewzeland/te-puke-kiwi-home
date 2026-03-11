@@ -1,10 +1,40 @@
+import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, ExternalLink, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Send, ExternalLink, MessageCircle } from "lucide-react";
+import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
 
 const Contact = () => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+
+    const form = e.target as HTMLFormElement;
+
+    try {
+      // Reemplaza estos valores con tus credenciales reales de EmailJS (https://www.emailjs.com/)
+      // Service ID, Template ID, Public Key
+      await emailjs.sendForm(
+        'YOUR_SERVICE_ID', // <-- INGRESA TU SERVICE ID AQUÍ
+        'YOUR_TEMPLATE_ID', // <-- INGRESA TU TEMPLATE ID AQUÍ
+        form,
+        'YOUR_PUBLIC_KEY' // <-- INGRESA TU PUBLIC KEY AQUÍ
+      );
+      toast.success("Message sent! We'll get back to you within 24 hours.");
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error("Failed to send message. Please check the EmailJS configuration or try a different contact method.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -27,21 +57,38 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 opacity-0 animate-fade-in-up [animation-delay:300ms]">
 
-            {/* Google Form Left Column */}
-            <div className="bg-card rounded-xl border border-border shadow-sm w-full overflow-hidden flex flex-col">
-              {/* Responsive Container for Google Form */}
-              <div className="relative w-full pb-[150%] md:pb-[120%] lg:pb-[140%] min-h-[800px]">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLScl-fkxbXUs802DsntmDbFZWiae4z2RTIjLAAsAtEadusvmAg/viewform?embedded=true"
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  title="Contact Form"
+            {/* Native Contact Form */}
+            <div className="bg-card rounded-xl border border-border shadow-sm p-6 md:p-8 flex flex-col justify-center">
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-6">Send us a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label htmlFor="user_name" className="block text-sm font-medium text-foreground mb-1.5">Name</label>
+                  <input id="user_name" name="user_name" required maxLength={100} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your full name" />
+                </div>
+                <div>
+                  <label htmlFor="user_email" className="block text-sm font-medium text-foreground mb-1.5">Email</label>
+                  <input id="user_email" name="user_email" type="email" required maxLength={255} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="your@email.com" />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1.5">Subject</label>
+                  <input id="subject" name="subject" required maxLength={200} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="What are you inquiring about?" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">Message</label>
+                  <textarea id="message" name="message" rows={5} required maxLength={2000} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-shadow" placeholder="Tell us about your dates, group size, and room requirements..." />
+                </div>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-semibold px-6 py-3.5 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60 mt-2"
                 >
-                  Loading…
-                </iframe>
-              </div>
+                  <Send className="h-4 w-4" />
+                  {sending ? "Sending..." : "Send Message"}
+                </button>
+                <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5 mt-4">
+                  <Clock className="h-3.5 w-3.5" /> We aim to reply to all inquiries within 24 hours.
+                </p>
+              </form>
             </div>
 
             {/* Contact Info Right Column */}
