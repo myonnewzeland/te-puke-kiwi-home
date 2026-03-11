@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { AlertTriangle, UtensilsCrossed, Bath, WashingMachine, Wifi, Car, Tv, TreePine } from "lucide-react";
@@ -36,9 +37,17 @@ const facilities = [
 
 const Accommodation = () => (
   <Layout>
+    <Helmet>
+      <title>Accommodation Te Puke | Pods, Caravans & Cabins at Te Puke Holiday Park</title>
+      <meta name="description" content="Affordable accommodation in Te Puke, Bay of Plenty. Choose from two-person pods, caravans or large cabins. Ideal for seasonal workers and backpackers." />
+      <link rel="canonical" href="https://www.tepukeholidaypark.co.nz/accommodation" />
+    </Helmet>
+
     <section className="section-padding">
       <div className="container-narrow">
-        <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">Accommodation</h1>
+        <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Accommodation at Te Puke Holiday Park
+        </h1>
 
         {/* Notice */}
         <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-10 border border-border">
@@ -49,6 +58,7 @@ const Accommodation = () => (
         </div>
 
         {/* Accommodation Cards */}
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Choose Your Stay</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {accommodations.map((a) => (
             <div key={a.name} className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)]">
