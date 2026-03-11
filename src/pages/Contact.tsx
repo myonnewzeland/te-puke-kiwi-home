@@ -20,8 +20,8 @@ const Contact = () => {
       // Reemplaza estos valores con tus credenciales reales de EmailJS (https://www.emailjs.com/)
       // Service ID, Template ID, Public Key
       await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // <-- INGRESA TU SERVICE ID AQUÍ
-        'YOUR_TEMPLATE_ID', // <-- INGRESA TU TEMPLATE ID AQUÍ
+        'service_vsteji2',
+        'template_mctrp0o',
         form,
         'rr7GRl2yAz-lkyzdC' // <-- USER PUBLIC KEY
       );
