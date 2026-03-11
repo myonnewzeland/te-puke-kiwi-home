@@ -9,7 +9,10 @@ const Footer = () => (
     <div className="container-narrow px-4 py-12 md:py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="font-heading text-xl font-bold mb-3">Te Puke Holiday Park</h3>
+          <div className="flex items-center gap-3 mb-3">
+            <img src={logo} alt="Te Puke Holiday Park logo" className="h-12 w-12" />
+            <h3 className="font-heading text-xl font-bold">Te Puke Holiday Park</h3>
+          </div>
           <p className="text-sm opacity-80">Your home away from home in the Kiwifruit Capital of the World.</p>
         </div>
         <div>
