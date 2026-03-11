@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Home, Briefcase, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import heroImg from "@/assets/hero-kiwifruit.jpg";
@@ -26,6 +27,12 @@ const cards = [
 
 const Index = () => (
   <Layout>
+    <Helmet>
+      <title>Te Puke Holiday Park — Affordable Accommodation in the Kiwifruit Capital</title>
+      <meta name="description" content="Budget-friendly accommodation for seasonal workers, RSE workers and backpackers in Te Puke, Bay of Plenty, New Zealand. Book your stay today." />
+      <link rel="canonical" href="https://www.tepukeholidaypark.co.nz/" />
+    </Helmet>
+
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden">
       <img
