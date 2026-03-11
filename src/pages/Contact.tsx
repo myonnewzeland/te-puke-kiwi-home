@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, Clock, Send, ExternalLink } from "lucide-react";
+import { Phone, MapPin, Clock, Send, ExternalLink, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
