@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2" aria-label="Te Puke Holiday Park home page">
           <picture>
             <source srcSet={logoWebp} type="image/webp" />
-            <img src={logo} alt="Te Puke Holiday Park logo" className="h-10 w-10" loading="lazy" width="40" height="40" />
+            <img src={logo} alt="Te Puke Holiday Park logo" className="h-10 w-10" width="40" height="40" />
           </picture>
           <span className="font-heading text-lg font-bold text-primary hidden sm:inline">Te Puke Holiday Park</span>
         </Link>
@@ -47,7 +47,6 @@ const Navbar = () => {
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span>021 0891 7258</span>
-            021 0891 7258
           </a>
         </nav>
 

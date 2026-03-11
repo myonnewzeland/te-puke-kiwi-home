@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
+import logoWebp from "@/assets/logo.webp";
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
 
@@ -11,7 +12,7 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-3 mb-3">
             <picture>
-              <source srcSet="/assets/logo.webp" type="image/webp" />
+              <source srcSet={logoWebp} type="image/webp" />
               <img src={logo} alt="Te Puke Holiday Park logo" loading="lazy" className="h-12 w-12" width="48" height="48" />
             </picture>
             <h3 className="font-heading text-xl font-bold">Te Puke Holiday Park</h3>
