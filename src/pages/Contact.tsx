@@ -96,7 +96,7 @@ const Contact = () => {
                     <p className="text-sm text-primary">021 0891 7258</p>
                   </div>
                 </a>
-                <a href="https://wa.me/64210891258" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:opacity-80 transition-opacity">
+                <a href="https://wa.me/642108917258?text=Hi%2C%20I%27m%20interested%20in%20your%20accommodation%20at%20Te%20Puke%20Holiday%20Park.%20Could%20you%20please%20send%20me%20more%20information%3F" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:opacity-80 transition-opacity">
                   <MessageCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-foreground text-sm">WhatsApp</p>
