@@ -35,15 +35,18 @@ const Index = () => (
 
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden" aria-label="Hero section with kiwifruit orchards background">
-      <img
-        src={heroImg}
-        alt="Beautiful kiwifruit orchards in Bay of Plenty, New Zealand - the perfect setting for your holiday accommodation"
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-        width="1920"
-        height="1080"
-      />
+      <picture className="absolute inset-0 w-full h-full">
+        <source srcSet="/assets/hero-kiwifruit.webp" type="image/webp" />
+        <img
+          src={heroImg}
+          alt="Beautiful kiwifruit orchards in Bay of Plenty, New Zealand - the perfect setting for your holiday accommodation"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          width="1920"
+          height="1080"
+        />
+      </picture>
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden="true" />
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight opacity-0 animate-fade-in-up">

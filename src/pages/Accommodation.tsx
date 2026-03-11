@@ -10,17 +10,20 @@ import cabinsImg from "@/assets/cabins.jpg";
 const accommodations = [
   {
     img: podsImg,
+    imgWebp: "/assets/pods.webp",
     name: "Pods",
     badge: "Most Popular",
     desc: "Perfect for solo travellers or couples who want a cosy, private space at an affordable price. Pods typically include a bed, power, lighting and access to shared facilities such as bathrooms, kitchen and lounge.",
   },
   {
     img: caravansImg,
+    imgWebp: "/assets/caravans.webp",
     name: "Caravans",
     desc: "Ideal for workers or friends travelling together. Our caravans offer more space and storage, with comfortable beds and access to all shared park facilities.",
   },
   {
     img: cabinsImg,
+    imgWebp: "/assets/cabins.webp",
     name: "Cabins",
     desc: "Great for small groups, families or long-stay workers who want extra comfort. Cabins may include basic furnishings such as beds, a small table and chairs, with easy access to facilities.",
   },
@@ -83,14 +86,17 @@ const Accommodation = () => {
                   role="listitem"
                 >
                   <div className="relative overflow-hidden shrink-0">
-                    <img
-                      src={a.img}
-                      alt={`${a.name} accommodation at Te Puke Holiday Park`}
-                      loading="lazy"
-                      className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
-                      width="400"
-                      height="300"
-                    />
+                    <picture className="block w-full h-full">
+                      <source srcSet={a.imgWebp} type="image/webp" />
+                      <img
+                        src={a.img}
+                        alt={`${a.name} accommodation at Te Puke Holiday Park`}
+                        loading="lazy"
+                        className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
+                        width="400"
+                        height="300"
+                      />
+                    </picture>
                     {a.badge && (
                       <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full" aria-label="Most popular choice">
                         {a.badge}
