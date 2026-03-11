@@ -62,12 +62,12 @@ const Contact = () => {
               <h3 className="font-heading text-2xl font-bold text-foreground mb-6">Send us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="user_name" className="block text-sm font-medium text-foreground mb-1.5">Name</label>
-                  <input id="user_name" name="user_name" required maxLength={100} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your full name" />
+                  <label htmlFor="from_name" className="block text-sm font-medium text-foreground mb-1.5">Name</label>
+                  <input id="from_name" name="from_name" required maxLength={100} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your full name" />
                 </div>
                 <div>
-                  <label htmlFor="user_email" className="block text-sm font-medium text-foreground mb-1.5">Email</label>
-                  <input id="user_email" name="user_email" type="email" required maxLength={255} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="your@email.com" />
+                  <label htmlFor="reply_to" className="block text-sm font-medium text-foreground mb-1.5">Email</label>
+                  <input id="reply_to" name="reply_to" type="email" required maxLength={255} className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="your@email.com" />
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1.5">Subject</label>
