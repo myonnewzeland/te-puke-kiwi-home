@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Send, MessageCircle, Mail } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 
@@ -9,8 +9,8 @@ const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
-  const [formErrors, setFormErrors] = useState<{[key: string]: string}>({});
-  const [touched, setTouched] = useState<{[key: string]: boolean}>({});
+  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
   const [messageLength, setMessageLength] = useState(0);
 
   const validateField = (name: string, value: string) => {
@@ -64,7 +64,7 @@ const Contact = () => {
     const formData = new FormData(form);
 
     // Validate all fields
-    const errors: {[key: string]: string} = {};
+    const errors: { [key: string]: string } = {};
     let hasErrors = false;
 
     ['from_name', 'reply_to', 'subject', 'message'].forEach(fieldName => {
@@ -147,9 +147,8 @@ const Contact = () => {
                     required
                     maxLength={100}
                     placeholder="John Smith"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${
-                      formErrors.from_name ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                    }`}
+                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.from_name ? 'border-destructive focus:ring-destructive/50' : 'border-input'
+                      }`}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     aria-invalid={touched.from_name && !!formErrors.from_name}
@@ -173,9 +172,8 @@ const Contact = () => {
                     required
                     maxLength={255}
                     placeholder="john.smith@example.com"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${
-                      formErrors.reply_to ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                    }`}
+                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.reply_to ? 'border-destructive focus:ring-destructive/50' : 'border-input'
+                      }`}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     aria-invalid={touched.reply_to && !!formErrors.reply_to}
@@ -199,9 +197,8 @@ const Contact = () => {
                     required
                     maxLength={200}
                     placeholder="Accommodation inquiry"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${
-                      formErrors.subject ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                    }`}
+                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.subject ? 'border-destructive focus:ring-destructive/50' : 'border-input'
+                      }`}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     aria-invalid={touched.subject && !!formErrors.subject}
@@ -225,9 +222,8 @@ const Contact = () => {
                     required
                     maxLength={2000}
                     placeholder="Tell us about your dates, group size, and room requirements..."
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-shadow ${
-                      formErrors.message ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                    }`}
+                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-shadow ${formErrors.message ? 'border-destructive focus:ring-destructive/50' : 'border-input'
+                      }`}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     aria-invalid={touched.message && !!formErrors.message}
@@ -326,9 +322,7 @@ const Contact = () => {
                     className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0l1.34.95c.097.433.07.864-.233 1.087-.723l3.114-5.04a2 2 0 012.718-2.718L18.874 2.874a2 2 0 00-.718-2.718L13.727.322a2 2 0 00-1.087.723l-5.04 3.114a2 2 0 00-.723 1.087.233 1.087l5.26 7.89z" />
-                      </svg>
+                      <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">Email</p>

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { Calendar, ExternalLink, MapPin, FileText } from "lucide-react";
 import seasonalImg from "@/assets/seasonal-work.jpg";
+import seasonalImgWebp from "@/assets/seasonal-work.webp";
 
 const SeasonalWork = () => (
   <Layout>
@@ -14,7 +15,10 @@ const SeasonalWork = () => (
 
     {/* Banner */}
     <section className="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
-      <img src={seasonalImg} alt="Kiwifruit picking in Bay of Plenty" className="absolute inset-0 w-full h-full object-cover" />
+      <picture className="absolute inset-0 w-full h-full">
+        <source srcSet={seasonalImgWebp} type="image/webp" />
+        <img src={seasonalImg} alt="Kiwifruit picking in Bay of Plenty" className="absolute inset-0 w-full h-full object-cover" />
+      </picture>
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <div className="relative z-10 text-center px-4">
         <p className="text-primary-foreground/90 text-lg mb-2 font-body opacity-0 animate-fade-in [animation-delay:200ms]">Te Puke: Kiwifruit Capital of the World</p>

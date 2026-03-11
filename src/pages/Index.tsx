@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Home, Briefcase, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import heroImg from "@/assets/hero-kiwifruit.jpg";
+import heroImgWebp from "@/assets/hero-kiwifruit.webp";
 
 const cards = [
   {
@@ -36,7 +37,7 @@ const Index = () => (
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden" aria-label="Hero section with kiwifruit orchards background">
       <picture className="absolute inset-0 w-full h-full">
-        <source srcSet="/assets/hero-kiwifruit.webp" type="image/webp" />
+        <source srcSet={heroImgWebp} type="image/webp" />
         <img
           src={heroImg}
           alt="Beautiful kiwifruit orchards in Bay of Plenty, New Zealand - the perfect setting for your holiday accommodation"

@@ -6,24 +6,27 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import podsImg from "@/assets/pods.jpg";
 import caravansImg from "@/assets/caravans.jpg";
 import cabinsImg from "@/assets/cabins.jpg";
+import podsImgWebp from "@/assets/pods.webp";
+import caravansImgWebp from "@/assets/caravans.webp";
+import cabinsImgWebp from "@/assets/cabins.webp";
 
 const accommodations = [
   {
     img: podsImg,
-    imgWebp: "/assets/pods.webp",
+    imgWebp: podsImgWebp,
     name: "Pods",
     badge: "Most Popular",
     desc: "Perfect for solo travellers or couples who want a cosy, private space at an affordable price. Pods typically include a bed, power, lighting and access to shared facilities such as bathrooms, kitchen and lounge.",
   },
   {
     img: caravansImg,
-    imgWebp: "/assets/caravans.webp",
+    imgWebp: caravansImgWebp,
     name: "Caravans",
     desc: "Ideal for workers or friends travelling together. Our caravans offer more space and storage, with comfortable beds and access to all shared park facilities.",
   },
   {
     img: cabinsImg,
-    imgWebp: "/assets/cabins.webp",
+    imgWebp: cabinsImgWebp,
     name: "Cabins",
     desc: "Great for small groups, families or long-stay workers who want extra comfort. Cabins may include basic furnishings such as beds, a small table and chairs, with easy access to facilities.",
   },

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
+import logoWebp from "@/assets/logo.webp";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -20,7 +21,7 @@ const Navbar = () => {
       <div className="container-narrow flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2" aria-label="Te Puke Holiday Park home page">
           <picture>
-            <source srcSet="/assets/logo.webp" type="image/webp" />
+            <source srcSet={logoWebp} type="image/webp" />
             <img src={logo} alt="Te Puke Holiday Park logo" className="h-10 w-10" loading="lazy" width="40" height="40" />
           </picture>
           <span className="font-heading text-lg font-bold text-primary hidden sm:inline">Te Puke Holiday Park</span>
@@ -32,9 +33,8 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1 ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1 ${location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                }`}
               aria-current={location.pathname === link.to ? "page" : undefined}
             >
               {link.label}
@@ -77,9 +77,8 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className={`text-base font-medium py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1 ${
-                  location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`text-base font-medium py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1 ${location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                  }`}
                 aria-current={location.pathname === link.to ? "page" : undefined}
               >
                 {link.label}
