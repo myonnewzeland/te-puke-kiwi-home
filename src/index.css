@@ -108,12 +108,6 @@
     @apply max-w-full h-auto;
   }
 
-  /* Touch-friendly tap targets */
-  a,
-  button {
-    @apply min-touch-target;
-  }
-
   /* Smooth scrolling for anchor links */
   html {
     scroll-behavior: smooth;
