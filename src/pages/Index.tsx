@@ -41,16 +41,16 @@ const Index = () => (
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto animate-fade-in-up">
-        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">
+      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight opacity-0 animate-fade-in-up">
           Your Home Away From Home in the Kiwifruit Capital of the World
         </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 font-body">
+        <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 font-body opacity-0 animate-fade-in-up [animation-delay:200ms]">
           Affordable accommodation in Te Puke — the perfect base for seasonal workers, backpackers and adventurers exploring New Zealand's Bay of Plenty.
         </p>
         <Link
           to="/contact"
-          className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg"
+          className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg opacity-0 animate-scale-in [animation-delay:400ms] hover:scale-105 transition-transform"
         >
           Book Your Stay
         </Link>
@@ -61,13 +61,14 @@ const Index = () => (
     <section className="section-padding">
       <div className="container-narrow">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card) => (
+          {cards.map((card, i) => (
             <Link
               key={card.to}
               to={card.to}
-              className="group bg-card rounded-lg p-8 text-center transition-all hover:shadow-[var(--shadow-elevated)] border border-border"
+              className={`group bg-card rounded-lg p-8 text-center border border-border opacity-0 animate-fade-in-up hover:shadow-[var(--shadow-elevated)] hover:scale-[1.03] transition-all duration-300`}
+              style={{ animationDelay: `${i * 150}ms` }}
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent text-accent-foreground mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent text-accent-foreground mb-4 group-hover:scale-110 transition-transform duration-300">
                 <card.icon className="h-6 w-6" />
               </div>
               <h3 className="font-heading text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">

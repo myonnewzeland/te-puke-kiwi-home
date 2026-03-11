@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 
+const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
+
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
     <div className="container-narrow px-4 py-12 md:py-16">
@@ -28,7 +30,14 @@ const Footer = () => (
         <div>
           <h4 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Contact</h4>
           <div className="flex flex-col gap-2 text-sm opacity-80">
-            <span className="flex items-center gap-2"><MapPin className="h-4 w-4 shrink-0" /> 581 Jellicoe Street, Te Puke, PO BOX 10</span>
+            <a
+              href={GOOGLE_MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:opacity-100 transition-opacity"
+            >
+              <MapPin className="h-4 w-4 shrink-0" /> 581 Jellicoe Street, Te Puke
+            </a>
             <a href="tel:02108917258" className="flex items-center gap-2 hover:opacity-100 transition-opacity">
               <Phone className="h-4 w-4 shrink-0" /> 021 0891 7258
             </a>

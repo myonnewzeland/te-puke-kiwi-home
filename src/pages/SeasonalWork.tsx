@@ -17,8 +17,8 @@ const SeasonalWork = () => (
       <img src={seasonalImg} alt="Kiwifruit picking in Bay of Plenty" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <div className="relative z-10 text-center px-4">
-        <p className="text-primary-foreground/90 text-lg mb-2 font-body">Te Puke: Kiwifruit Capital of the World</p>
-        <h1 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground">
+        <p className="text-primary-foreground/90 text-lg mb-2 font-body opacity-0 animate-fade-in [animation-delay:200ms]">Te Puke: Kiwifruit Capital of the World</p>
+        <h1 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground opacity-0 animate-fade-in-up">
           Seasonal Kiwifruit Work in Te Puke, Bay of Plenty
         </h1>
       </div>
@@ -26,13 +26,13 @@ const SeasonalWork = () => (
 
     <section className="section-padding">
       <div className="container-narrow max-w-3xl">
-        <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
+        <p className="text-muted-foreground mb-10 text-lg leading-relaxed opacity-0 animate-fade-in-up [animation-delay:100ms]">
           Te Puke and the wider Bay of Plenty region offer year-round seasonal work in the kiwifruit industry. Whether you're here for the harvest or the pruning season, there's always an opportunity to earn while enjoying life in beautiful New Zealand.
         </p>
 
         {/* Harvest Season */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Kiwifruit Harvest Season: April to June</h2>
-        <div className="bg-accent rounded-lg p-6 border border-border mb-8">
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-4 opacity-0 animate-slide-in-left [animation-delay:200ms]">Kiwifruit Harvest Season: April to June</h2>
+        <div className="bg-accent rounded-lg p-6 border border-border mb-8 opacity-0 animate-fade-in-up [animation-delay:300ms]">
           <div className="flex items-center gap-3 mb-2">
             <Calendar className="h-5 w-5 text-primary" />
             <h3 className="font-body font-semibold text-foreground">Peak Demand Period</h3>
@@ -41,8 +41,8 @@ const SeasonalWork = () => (
         </div>
 
         {/* Pruning Season */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Kiwifruit Pruning Season: July to March</h2>
-        <div className="bg-accent rounded-lg p-6 border border-border mb-8">
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-4 opacity-0 animate-slide-in-left [animation-delay:400ms]">Kiwifruit Pruning Season: July to March</h2>
+        <div className="bg-accent rounded-lg p-6 border border-border mb-8 opacity-0 animate-fade-in-up [animation-delay:500ms]">
           <div className="flex items-center gap-3 mb-2">
             <Calendar className="h-5 w-5 text-primary" />
             <h3 className="font-body font-semibold text-foreground">Year-Round Opportunity</h3>
@@ -51,8 +51,8 @@ const SeasonalWork = () => (
         </div>
 
         {/* Visa Requirements */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Work Visa Requirements for Seasonal Jobs</h2>
-        <div className="bg-muted rounded-lg p-5 mb-8 border border-border">
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-4 opacity-0 animate-slide-in-left [animation-delay:600ms]">Work Visa Requirements for Seasonal Jobs</h2>
+        <div className="bg-muted rounded-lg p-5 mb-8 border border-border opacity-0 animate-fade-in-up [animation-delay:700ms]">
           <div className="flex items-start gap-3">
             <FileText className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <p className="text-sm text-foreground">
@@ -66,8 +66,8 @@ const SeasonalWork = () => (
         </div>
 
         {/* Where to Find Jobs */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Where to Find Seasonal Kiwifruit Jobs</h2>
-        <div className="flex items-center gap-3 mb-4">
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-4 opacity-0 animate-slide-in-left [animation-delay:800ms]">Where to Find Seasonal Kiwifruit Jobs</h2>
+        <div className="flex items-center gap-3 mb-4 opacity-0 animate-fade-in-up [animation-delay:900ms]">
           <ExternalLink className="h-5 w-5 text-primary shrink-0" />
           <p className="text-sm text-foreground">
             Visit{" "}
@@ -79,7 +79,7 @@ const SeasonalWork = () => (
         </div>
 
         {/* Location advantage */}
-        <div className="bg-card rounded-lg p-6 border border-border shadow-[var(--shadow-card)] mb-4">
+        <div className="bg-card rounded-lg p-6 border border-border shadow-[var(--shadow-card)] mb-4 opacity-0 animate-scale-in [animation-delay:1000ms] hover:shadow-[var(--shadow-elevated)] transition-shadow duration-300">
           <div className="flex items-center gap-3 mb-3">
             <MapPin className="h-5 w-5 text-secondary" />
             <h3 className="font-heading text-lg font-bold text-foreground">Prime Location for Workers</h3>
@@ -89,10 +89,10 @@ const SeasonalWork = () => (
           </p>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 opacity-0 animate-scale-in [animation-delay:1100ms]">
           <Link
             to="/contact"
-            className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity"
+            className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:scale-105 transition-transform"
           >
             Book Your Stay
           </Link>
