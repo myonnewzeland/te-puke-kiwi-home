@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Te Puke Kiwi Home
 
-## Project info
+Website for **Te Puke Holiday Park** — accommodation for seasonal kiwifruit workers, backpackers, and RSE employers in Te Puke, New Zealand.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+> Live site: [tepukeholidaypark.co.nz](https://www.tepukeholidaypark.co.nz)
+> Repository: [myonnewzeland/te-puke-kiwi-home](https://github.com/myonnewzeland/te-puke-kiwi-home)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Stack
 
-**Use Lovable**
+| Layer | Technology |
+|---|---|
+| Framework | React 18 |
+| Language | TypeScript 5 |
+| Build tool | Vite 5 (React SWC plugin) |
+| Styles | Tailwind CSS 3 + CSS variables |
+| UI components | shadcn/ui (Radix UI primitives) |
+| Routing | React Router DOM v6 |
+| SEO | react-helmet-async |
+| Fonts | Playfair Display (headings) + DM Sans (body) |
+| Analytics | Microsoft Clarity |
+| Live chat | Tawk.to |
+| Unit tests | Vitest + Testing Library |
+| E2E tests | Playwright |
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Pages
 
-**Use your preferred IDE**
+| Route | Page | Description |
+|---|---|---|
+| `/` | Home | Hero section with three quick-access cards |
+| `/accommodation` | Accommodation | Pods, caravans, cabins and on-site facilities |
+| `/seasonal-work` | Seasonal Work | Kiwifruit harvest/pruning seasons, visa info, external links |
+| `/rse-accommodation` | RSE Accommodation | Information for RSE scheme employers |
+| `/contact` | Contact | Contact form, phone, address, Google Maps embed, WhatsApp |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Development
 
-Follow these steps:
+**Requirements:** Node.js 18+ or Bun
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone
+git clone https://github.com/myonnewzeland/te-puke-kiwi-home.git
+cd te-puke-kiwi-home
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
+# or
+bun install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server (http://localhost:8080)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Available scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run dev        # Development server on port 8080
+npm run build      # Production build
+npm run preview    # Preview production build locally
+npm run lint       # ESLint
+npm run test       # Run unit tests once
+npm run test:watch # Unit tests in watch mode
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/
+│   ├── ui/          # shadcn/ui components (Radix UI based)
+│   ├── Layout.tsx   # Navbar + main + Footer wrapper
+│   ├── Navbar.tsx   # Fixed header with desktop/mobile nav
+│   ├── Footer.tsx   # Footer with contact details
+│   └── NavLink.tsx  # React Router NavLink wrapper
+├── hooks/
+│   ├── use-mobile.tsx        # Detects viewport < 768px
+│   └── use-scroll-reveal.ts  # IntersectionObserver scroll animations
+├── lib/
+│   └── utils.ts     # cn() = clsx + tailwind-merge
+├── pages/           # One file per route
+└── assets/          # Images (hero, accommodation photos, logo)
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Notes
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- No backend — the contact form currently does not submit data anywhere.
+- No environment variables are required. All configuration (phone, address, analytics IDs) is hardcoded.
+- `lovable-tagger` dev plugin is included from the original Lovable.dev scaffolding; it is only active in development mode and can be safely removed.
+- `next-themes`, `recharts`, `embla-carousel`, and many shadcn/ui components are installed but not actively used in the current pages.

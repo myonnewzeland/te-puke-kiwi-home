@@ -72,7 +72,7 @@ const Accommodation = () => {
                 style={{ animationDelay: `${300 + i * 150}ms` }}
               >
                 <div className="relative overflow-hidden">
-                  <img src={a.img} alt={a.name} className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500" />
+                  <img src={a.img} alt={a.name} loading="lazy" className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500" />
                   {a.badge && (
                     <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full">
                       {a.badge}
