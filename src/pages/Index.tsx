@@ -79,9 +79,9 @@ const Index = () => (
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent text-accent-foreground mb-4 group-hover:scale-110 transition-transform duration-300">
                 <card.icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="font-heading text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+              <h2 className="font-heading text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                 {card.title}
-              </h3>
+              </h2>
               <p className="text-muted-foreground text-sm">{card.desc}</p>
             </Link>
           ))}

@@ -11,12 +11,12 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <h3 className="font-heading text-xl font-bold">Te Puke Holiday Park</h3>
+            <h2 className="font-heading text-xl font-bold">Te Puke Holiday Park</h2>
           </div>
           <p className="text-sm opacity-80">Your home away from home in the Kiwifruit Capital of the World.</p>
         </div>
         <div>
-          <h4 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Navigate</h4>
+          <h3 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Navigate</h3>
           <nav className="flex flex-col gap-2" aria-label="Footer navigation">
             {[
               { to: "/", label: "Home" },
@@ -36,7 +36,7 @@ const Footer = () => (
           </nav>
         </div>
         <div>
-          <h4 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Contact</h4>
+          <h3 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Contact</h3>
           <div className="flex flex-col gap-2 text-sm opacity-80">
             <a
               href={GOOGLE_MAPS_LINK}
