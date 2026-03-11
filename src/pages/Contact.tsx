@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, Clock, Send, ExternalLink } from "lucide-react";
+import { Phone, MapPin, Clock, Send, ExternalLink, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
@@ -94,6 +94,13 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground text-sm">Phone</p>
                     <p className="text-sm text-primary">021 0891 7258</p>
+                  </div>
+                </a>
+                <a href="https://wa.me/64210891258" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:opacity-80 transition-opacity">
+                  <MessageCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">WhatsApp</p>
+                    <p className="text-sm text-primary">Chat with us</p>
                   </div>
                 </a>
               </div>
