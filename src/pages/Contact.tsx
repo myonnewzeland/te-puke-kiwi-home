@@ -96,6 +96,13 @@ const Contact = () => {
                     <p className="text-sm text-primary">021 0891 7258</p>
                   </div>
                 </a>
+                <a href="https://wa.me/64210891258" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:opacity-80 transition-opacity">
+                  <MessageCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">WhatsApp</p>
+                    <p className="text-sm text-primary">Chat with us</p>
+                  </div>
+                </a>
               </div>
 
               {/* Map & Directions */}
