@@ -45,12 +45,12 @@ const Accommodation = () => (
 
     <section className="section-padding">
       <div className="container-narrow">
-        <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4 opacity-0 animate-fade-in-up">
           Accommodation at Te Puke Holiday Park
         </h1>
 
         {/* Notice */}
-        <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-10 border border-border">
+        <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-10 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]">
           <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
           <p className="text-sm text-foreground">
             <strong>Please note:</strong> Guests are required to bring their own bedding, linen, and cooking utensils. We provide the space — you bring the comfort!
@@ -58,12 +58,16 @@ const Accommodation = () => (
         </div>
 
         {/* Accommodation Cards */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Choose Your Stay</h2>
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up [animation-delay:200ms]">Choose Your Stay</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {accommodations.map((a) => (
-            <div key={a.name} className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)]">
-              <div className="relative">
-                <img src={a.img} alt={a.name} className="w-full h-52 object-cover" />
+          {accommodations.map((a, i) => (
+            <div
+              key={a.name}
+              className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] opacity-0 animate-scale-in hover:shadow-[var(--shadow-elevated)] hover:scale-[1.02] transition-all duration-300"
+              style={{ animationDelay: `${300 + i * 150}ms` }}
+            >
+              <div className="relative overflow-hidden">
+                <img src={a.img} alt={a.name} className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500" />
                 {a.badge && (
                   <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full">
                     {a.badge}
@@ -79,20 +83,24 @@ const Accommodation = () => (
         </div>
 
         {/* Facilities */}
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-6 text-center">Communal Facilities</h2>
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-6 text-center opacity-0 animate-fade-in-up [animation-delay:600ms]">Communal Facilities</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {facilities.map((f) => (
-            <div key={f.label} className="flex flex-col items-center gap-2 bg-accent rounded-lg p-5 text-center">
+          {facilities.map((f, i) => (
+            <div
+              key={f.label}
+              className="flex flex-col items-center gap-2 bg-accent rounded-lg p-5 text-center opacity-0 animate-fade-in-up hover:scale-105 transition-transform duration-200"
+              style={{ animationDelay: `${700 + i * 80}ms` }}
+            >
               <f.icon className="h-7 w-7 text-primary" />
               <span className="text-sm font-medium text-foreground">{f.label}</span>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 opacity-0 animate-scale-in [animation-delay:1200ms]">
           <Link
             to="/contact"
-            className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity"
+            className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:scale-105 transition-transform"
           >
             Book Your Stay
           </Link>
