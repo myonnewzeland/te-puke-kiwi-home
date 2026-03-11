@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-import logo from "@/assets/logo.png";
-import logoWebp from "@/assets/logo.webp";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -20,11 +18,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container-narrow flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2" aria-label="Te Puke Holiday Park home page">
-          <picture>
-            <source srcSet={logoWebp} type="image/webp" />
-            <img src={logo} alt="Te Puke Holiday Park logo" className="h-10 w-10" width="40" height="40" />
-          </picture>
-          <span className="font-heading text-lg font-bold text-primary hidden sm:inline">Te Puke Holiday Park</span>
+          <span className="font-heading text-lg font-bold text-primary">Te Puke Holiday Park</span>
         </Link>
 
         {/* Desktop nav */}
