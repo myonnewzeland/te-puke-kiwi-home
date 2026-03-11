@@ -36,7 +36,7 @@ const facilities = [
 ];
 
 const Accommodation = () => {
-  const facilitiesRef = useScrollReveal<HTMLDivElement>();
+  const facilitiesRef = useScrollReveal<HTMLUListElement>();
   const faqRef = useScrollReveal<HTMLDivElement>();
 
   return (
@@ -47,9 +47,9 @@ const Accommodation = () => {
         <link rel="canonical" href="https://www.tepukeholidaypark.co.nz/accommodation" />
       </Helmet>
 
-      <section className="section-padding">
+      <section className="section-padding" aria-labelledby="accommodation-heading">
         <div className="container-narrow">
-          <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up">
+          <h1 id="accommodation-heading" className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up">
             Accommodation at Te Puke Holiday Park
           </h1>
 
@@ -59,8 +59,8 @@ const Accommodation = () => {
           </p>
 
           {/* Notice */}
-          <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-12 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]">
-            <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+          <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-12 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]" role="alert">
+            <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
             <p className="text-sm text-foreground">
               <strong>Please note:</strong> Guests are required to bring their own bedding, linen, and cooking utensils. We provide the space — you bring the comfort!
             </p>
@@ -74,17 +74,25 @@ const Accommodation = () => {
             <p className="text-foreground/80 mb-8 opacity-0 animate-fade-in-up [animation-delay:250ms]">
               We offer a mix of pods, caravans and cabins so you can choose the option that suits your budget and style.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list" aria-label="Accommodation options">
               {accommodations.map((a, i) => (
-                <div
+                <article
                   key={a.name}
-                  className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] opacity-0 animate-scale-in hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] hover:border-primary/30 transition-all duration-300 flex flex-col"
+                  className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] opacity-0 animate-scale-in hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] hover:border-primary/30 transition-all duration-300 flex flex-col focus-within:ring-2 focus-within:ring-primary"
                   style={{ animationDelay: `${300 + i * 150}ms` }}
+                  role="listitem"
                 >
                   <div className="relative overflow-hidden shrink-0">
-                    <img src={a.img} alt={a.name} loading="lazy" className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500" />
+                    <img
+                      src={a.img}
+                      alt={`${a.name} accommodation at Te Puke Holiday Park`}
+                      loading="lazy"
+                      className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
+                      width="400"
+                      height="300"
+                    />
                     {a.badge && (
-                      <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                      <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full" aria-label="Most popular choice">
                         {a.badge}
                       </span>
                     )}
@@ -93,7 +101,7 @@ const Accommodation = () => {
                     <h3 className="font-heading text-xl font-bold text-foreground mb-3">{a.name}</h3>
                     <p className="text-sm text-muted-foreground flex-grow">{a.desc}</p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -104,21 +112,22 @@ const Accommodation = () => {
             <p className="text-foreground/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up [animation-delay:650ms]">
               When you stay at Te Puke Holiday Park, you get access to practical facilities that make long stays easier. These facilities are designed for seasonal workers, backpackers and RSE crews who need a reliable place to come home to each day.
             </p>
-            <div ref={facilitiesRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6">
+            <ul ref={facilitiesRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6" role="list" aria-label="Park facilities">
               {facilities.map((f, i) => (
-                <div
+                <li
                   key={f.label}
                   data-reveal
                   className="facility-card group flex items-center gap-4 bg-background rounded-xl p-4 md:p-5 border border-border/50 hover:border-primary/30 transition-colors"
                   style={{ "--i": i } as React.CSSProperties}
+                  role="listitem"
                 >
-                  <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                     <f.icon className="h-6 w-6 text-primary" />
                   </div>
                   <span className="text-sm md:text-base font-medium text-foreground">{f.label}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Two Column Section for RSE & Location */}

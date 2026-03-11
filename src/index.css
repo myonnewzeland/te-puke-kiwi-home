@@ -103,6 +103,27 @@
     @apply mx-auto max-w-6xl;
   }
 
+  /* Performance optimizations */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Touch-friendly tap targets */
+  a,
+  button {
+    @apply min-touch-target;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus visible for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+
   /* Scroll-reveal facility cards */
   .facility-card {
     opacity: 0;
@@ -120,5 +141,27 @@
     @apply border-primary/40;
     transform: translateY(-4px);
     box-shadow: 0 8px 24px -6px hsla(142, 40%, 32%, 0.18);
+  }
+
+  /* Accessibility utilities */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus:not(.sr-only) {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Skip link styling */
+  a.sr-only:focus {
+    @apply not-sr-only absolute top-4 left-4 z-50 px-4 py-2 bg-primary text-primary-foreground rounded-lg;
   }
 }

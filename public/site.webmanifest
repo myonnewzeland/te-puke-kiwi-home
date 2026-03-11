@@ -1,0 +1,44 @@
+{
+  "name": "Te Puke Holiday Park - Affordable Seasonal Worker & Backpacker Accommodation",
+  "short_name": "Te Puke Holiday Park",
+  "description": "Affordable accommodation in Te Puke, Bay of Plenty for seasonal workers, RSE workers, and backpackers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a5d3a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["travel", "lodging", "accommodation"],
+  "shortcuts": [
+    {
+      "name": "Book Accommodation",
+      "short_name": "Book Now",
+      "description": "Book your stay at Te Puke Holiday Park",
+      "url": "/contact",
+      "icons": [{ "src": "/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Accommodation",
+      "short_name": "Accommodation",
+      "description": "View our accommodation options",
+      "url": "/accommodation",
+      "icons": [{ "src": "/favicon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}

@@ -148,12 +148,12 @@ const Contact = () => {
                 <div className="p-6 md:p-8 border-b border-border">
                   <h3 className="font-heading text-lg font-bold text-foreground mb-2">Map & Directions</h3>
                   <p className="text-muted-foreground">
-                    Find us easily in Te Puke, Bay of Plenty – tap the map or the link below to open directions in Google Maps on your phone.
+                    We're located at 581 Jellicoe Street, Te Puke — easily accessible from State Highway 2. Click the map or button below for turn-by-turn directions.
                   </p>
                 </div>
                 <div className="h-64 sm:h-80 w-full flex-grow">
                   <iframe
-                    title="Te Puke Holiday Park Location"
+                    title="Te Puke Holiday Park Location Map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.5!2d176.325!3d-37.783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6e574df79a5455%3A0x5e38324ef1ef71a3!2s581%20Jellicoe%20Street%2C%20Te%20Puke%203119%2C%20New%20Zealand!5e0!3m2!1sen!2snz!4v1"
                     width="100%"
                     height="100%"
@@ -161,6 +161,7 @@ const Contact = () => {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Interactive map showing Te Puke Holiday Park location"
                   />
                 </div>
                 <div className="p-4 bg-muted/50 text-center">
@@ -168,10 +169,11 @@ const Contact = () => {
                     href={GOOGLE_MAPS_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 text-primary font-semibold hover:underline"
+                    className="inline-flex items-center justify-center gap-2 text-primary font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1"
+                    aria-label="Get directions to Te Puke Holiday Park in Google Maps"
                   >
-                    <ExternalLink className="h-4 w-4" />
-                    Open in Google Maps
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    Get Directions
                   </a>
                 </div>
               </div>

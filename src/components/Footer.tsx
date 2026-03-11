@@ -17,7 +17,7 @@ const Footer = () => (
         </div>
         <div>
           <h4 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">Navigate</h4>
-          <nav className="flex flex-col gap-2">
+          <nav className="flex flex-col gap-2" aria-label="Footer navigation">
             {[
               { to: "/", label: "Home" },
               { to: "/accommodation", label: "Accommodation" },
@@ -25,7 +25,11 @@ const Footer = () => (
               { to: "/rse-accommodation", label: "RSE Accommodation" },
               { to: "/contact", label: "Contact" },
             ].map((l) => (
-              <Link key={l.to} to={l.to} className="text-sm opacity-80 hover:opacity-100 transition-opacity">
+              <Link
+                key={l.to}
+                to={l.to}
+                className="text-sm opacity-80 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1"
+              >
                 {l.label}
               </Link>
             ))}
@@ -38,18 +42,25 @@ const Footer = () => (
               href={GOOGLE_MAPS_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:opacity-100 transition-opacity"
+              className="flex items-center gap-2 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1"
+              aria-label="View our location on Google Maps: 581 Jellicoe Street, Te Puke"
             >
-              <MapPin className="h-4 w-4 shrink-0" /> 581 Jellicoe Street, Te Puke
+              <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>581 Jellicoe Street, Te Puke</span>
             </a>
-            <a href="tel:02108917258" className="flex items-center gap-2 hover:opacity-100 transition-opacity">
-              <Phone className="h-4 w-4 shrink-0" /> 021 0891 7258
+            <a
+              href="tel:02108917258"
+              className="flex items-center gap-2 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1"
+              aria-label="Call us at 021 0891 7258"
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>021 0891 7258</span>
             </a>
           </div>
         </div>
       </div>
       <div className="mt-10 pt-6 border-t border-primary-foreground/20 text-center text-xs opacity-60">
-        © 2025 Te Puke Holiday Park. All Rights Reserved.
+        <p>© {new Date().getFullYear()} Te Puke Holiday Park. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
