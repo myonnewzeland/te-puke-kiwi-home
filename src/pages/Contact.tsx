@@ -23,7 +23,7 @@ const Contact = () => {
         'YOUR_SERVICE_ID', // <-- INGRESA TU SERVICE ID AQUÍ
         'YOUR_TEMPLATE_ID', // <-- INGRESA TU TEMPLATE ID AQUÍ
         form,
-        'YOUR_PUBLIC_KEY' // <-- INGRESA TU PUBLIC KEY AQUÍ
+        'rr7GRl2yAz-lkyzdC' // <-- USER PUBLIC KEY
       );
       toast.success("Message sent! We'll get back to you within 24 hours.");
       form.reset();
