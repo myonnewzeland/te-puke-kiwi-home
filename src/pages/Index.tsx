@@ -115,7 +115,58 @@ const Index = () => {
         </div>
       </div>
     </section>
+
+    {/* Photo Gallery Carousel */}
+    <section className="section-padding bg-accent/30" aria-label="Photo gallery of Te Puke Holiday Park">
+      <div className="container-narrow">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center mb-8 opacity-0 animate-fade-in-up">
+          Life at Te Puke Holiday Park
+        </h2>
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
+            <div className="relative aspect-[16/9]">
+              {galleryImages.map((img, i) => (
+                <img
+                  key={i}
+                  src={img.src}
+                  alt={img.alt}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  width="960"
+                  height="540"
+                />
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 hover:bg-background transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label="Previous photo"
+          >
+            <ChevronLeft className="h-5 w-5 text-foreground" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 hover:bg-background transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label="Next photo"
+          >
+            <ChevronRight className="h-5 w-5 text-foreground" />
+          </button>
+          <div className="flex justify-center gap-2 mt-4">
+            {galleryImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "bg-primary scale-125" : "bg-border hover:bg-muted-foreground"}`}
+                aria-label={`Go to photo ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   </Layout>
-);
+  );
+};
 
 export default Index;
