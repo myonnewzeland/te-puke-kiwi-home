@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, Clock, Send, MessageCircle, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 
