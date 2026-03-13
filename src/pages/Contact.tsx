@@ -316,20 +316,6 @@ const Contact = () => {
                     </div>
                   </a>
 
-                  {/* Email */}
-                  <a
-                    href="mailto:info@tepukeholidaypark.co.nz"
-                    className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">Email</p>
-                      <p className="text-sm text-primary font-medium">info@tepukeholidaypark.co.nz</p>
-                      <p className="text-xs text-muted-foreground">Send us an email</p>
-                    </div>
-                  </a>
                 </div>
               </div>
 
