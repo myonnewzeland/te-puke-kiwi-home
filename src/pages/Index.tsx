@@ -9,16 +9,16 @@ import Layout from "@/components/Layout";
 
 /* ── navigation cards ── */
 const cards = [
-  { icon: Home,     title: "Accommodation", desc: "Pods, caravans & cabins — comfortable and affordable stays.", to: "/accommodation" },
-  { icon: Briefcase, title: "Seasonal Work",  desc: "Find kiwifruit picking & pruning work in the Bay of Plenty.",  to: "/seasonal-work" },
-  { icon: Users,    title: "RSE Workers",    desc: "Dedicated accommodation solutions for RSE employers.",          to: "/rse-accommodation" },
+  { icon: Home, title: "Accommodation", desc: "Pods, caravans & cabins — comfortable and affordable stays.", to: "/accommodation" },
+  { icon: Briefcase, title: "Seasonal Work", desc: "Find kiwifruit picking & pruning work in the Bay of Plenty.", to: "/seasonal-work" },
+  { icon: Users, title: "RSE Workers", desc: "Dedicated accommodation solutions for RSE employers.", to: "/rse-accommodation" },
 ];
 
 /* ── images ── */
-const B  = "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17";
-const heroImage    = `${B}.16%20(2).webp`;
+const B = "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17";
+const heroImage = `${B}.16%20(2).webp`;
 /* Featured = outdoor grounds — visually appealing first impression */
-const featuredImg  = `${B}.16.webp`;
+const featuredImg = `${B}.16.webp`;
 const featuredLabel = "Park Grounds & Green Spaces";
 
 type Photo = { src: string; label: string; cat: string };
@@ -26,26 +26,26 @@ type Photo = { src: string; label: string; cat: string };
 /* Ordered: Accommodation → Outdoors → Amenities */
 const galleryPhotos: Photo[] = [
   /* Accommodation */
-  { src: `${B}.15%20(2).webp`, label: "Pods — cosy private spaces",       cat: "Accommodation" },
-  { src: `${B}.15.webp`,        label: "Caravans — room for groups",        cat: "Accommodation" },
+  { src: `${B}.15%20(2).webp`, label: "Pods — cosy private spaces", cat: "Accommodation" },
+  { src: `${B}.15.webp`, label: "Caravans — room for groups", cat: "Accommodation" },
   { src: `${B}.16%20(1).webp`, label: "Cabins — comfort for small groups", cat: "Accommodation" },
-  { src: `${B}.15%20(1).webp`, label: "Caravan Interior",                  cat: "Accommodation" },
+  { src: `${B}.15%20(1).webp`, label: "Caravan Interior", cat: "Accommodation" },
   /* Outdoors */
-  { src: `${B}.17.webp`,        label: "Relax outdoor area",                cat: "Outdoors" },
-  { src: `${B}.18%20(2).webp`, label: "Evening atmosphere",                cat: "Outdoors" },
-  { src: `${B}.18.webp`,        label: "Surroundings — kiwifruit country",  cat: "Outdoors" },
-  { src: `${B}.16%20(2).webp`, label: "Beautiful green views",             cat: "Outdoors" },
+  { src: `${B}.17.webp`, label: "Relax outdoor area", cat: "Outdoors" },
+  { src: `${B}.18%20(2).webp`, label: "Evening atmosphere", cat: "Outdoors" },
+  { src: `${B}.18.webp`, label: "Surroundings — kiwifruit country", cat: "Outdoors" },
+  { src: `${B}.16%20(2).webp`, label: "Beautiful green views", cat: "Outdoors" },
   /* Amenities */
-  { src: `${B}.17%20(1).webp`, label: "Shared facilities",                 cat: "Amenities" },
-  { src: `${B}.17%20(2).webp`, label: "Shared kitchen",                    cat: "Amenities" },
-  { src: `${B}.18%20(1).webp`, label: "Recreation & basketball court",     cat: "Amenities" },
+  { src: `${B}.17%20(1).webp`, label: "Shared facilities", cat: "Amenities" },
+  { src: `${B}.17%20(2).webp`, label: "Shared kitchen", cat: "Amenities" },
+  { src: `${B}.18%20(1).webp`, label: "Recreation & basketball court", cat: "Amenities" },
 ];
 
 const CATS = ["All", "Accommodation", "Outdoors", "Amenities"] as const;
 
 /* ── component ── */
 const Index = () => {
-  const [filter,     setFilter]     = useState<string>("All");
+  const [filter, setFilter] = useState<string>("All");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   const filtered = filter === "All"
@@ -64,9 +64,9 @@ const Index = () => {
   useEffect(() => {
     if (lightboxIdx === null) return;
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape")      closeLightbox();
-      if (e.key === "ArrowLeft")   prev();
-      if (e.key === "ArrowRight")  next();
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
@@ -171,11 +171,10 @@ const Index = () => {
           <div className="flex flex-wrap gap-2 mb-6">
             {CATS.map(cat => (
               <button key={cat} onClick={() => setFilter(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary ${
-                  filter === cat
+                className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary ${filter === cat
                     ? "bg-primary text-primary-foreground border-primary shadow-md"
                     : "bg-background text-foreground border-border hover:border-primary/50 hover:text-primary"
-                }`}>
+                  }`}>
                 {cat}
               </button>
             ))}
