@@ -3,30 +3,26 @@ import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { AlertTriangle, UtensilsCrossed, Bath, WashingMachine, Wifi, Car, TreePine, MapPin, DollarSign, Users } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import podsImg from "@/assets/pods.jpg";
-import caravansImg from "@/assets/caravans.jpg";
-import cabinsImg from "@/assets/cabins.jpg";
-import podsImgWebp from "@/assets/pods.webp";
-import caravansImgWebp from "@/assets/caravans.webp";
-import cabinsImgWebp from "@/assets/cabins.webp";
+
+
+const IMG_BASE = "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17";
+
+const heroImg = `${IMG_BASE}.15%20(1).webp`;
 
 const accommodations = [
   {
-    img: podsImg,
-    imgWebp: podsImgWebp,
+    img: "https://im.tepukeholidaypark.co.nz/pods.webp",
     name: "Pods",
     badge: "Most Popular",
     desc: "Perfect for solo travellers or couples who want a cosy, private space at an affordable price. Pods typically include a bed, power, lighting and access to shared facilities such as bathrooms, kitchen and lounge.",
   },
   {
-    img: caravansImg,
-    imgWebp: caravansImgWebp,
+    img: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17.15%20(1).webp",
     name: "Caravans",
     desc: "Ideal for workers or friends travelling together. Our caravans offer more space and storage, with comfortable beds and access to all shared park facilities.",
   },
   {
-    img: cabinsImg,
-    imgWebp: cabinsImgWebp,
+    img: `${IMG_BASE}.16%20(1).webp`,
     name: "Cabins",
     desc: "Great for small groups, families or long-stay workers who want extra comfort. Cabins may include basic furnishings such as beds, a small table and chairs, with easy access to facilities.",
   },
@@ -53,14 +49,32 @@ const Accommodation = () => {
         <link rel="canonical" href="https://www.tepukeholidaypark.co.nz/accommodation" />
       </Helmet>
 
-      <section className="section-padding" aria-labelledby="accommodation-heading">
-        <div className="container-narrow">
-          <h1 id="accommodation-heading" className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up">
+      {/* Hero Banner */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden" aria-labelledby="accommodation-heading">
+        <picture className="absolute inset-0 w-full h-full">
+          <img
+            src={heroImg}
+            alt="Beautiful view at Te Puke Holiday Park"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden="true" />
+        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+          <h1 id="accommodation-heading" className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight opacity-0 animate-fade-in-up">
             Accommodation at Te Puke Holiday Park
           </h1>
+          <p className="text-lg md:text-xl text-primary-foreground/90 font-body opacity-0 animate-fade-in-up [animation-delay:200ms]">
+            Simple, comfortable and affordable stays in the kiwifruit capital of New Zealand.
+          </p>
+        </div>
+      </section>
 
-          <p className="text-lg text-foreground/80 mb-8 max-w-3xl opacity-0 animate-fade-in-up [animation-delay:100ms]">
-            Te Puke Holiday Park offers simple, comfortable and affordable accommodation in the kiwifruit capital of New Zealand.
+      <section className="section-padding">
+        <div className="container-narrow">
+
+          <p className="text-lg text-foreground/80 mb-10 max-w-3xl opacity-0 animate-fade-in-up [animation-delay:300ms] mx-auto text-center">
             Whether you are here for seasonal work, travelling in a group, or exploring the Bay of Plenty, we provide a safe and friendly base with everything you need.
           </p>
 
@@ -80,35 +94,33 @@ const Accommodation = () => {
             <p className="text-foreground/80 mb-8 opacity-0 animate-fade-in-up [animation-delay:250ms]">
               We offer a mix of pods, caravans and cabins so you can choose the option that suits your budget and style.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list" aria-label="Accommodation options">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list" aria-label="Accommodation options">
               {accommodations.map((a, i) => (
                 <article
                   key={a.name}
-                  className="bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] opacity-0 animate-scale-in hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] hover:border-primary/30 transition-all duration-300 flex flex-col focus-within:ring-2 focus-within:ring-primary"
-                  style={{ animationDelay: `${300 + i * 150}ms` }}
+                  className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col focus-within:ring-2 focus-within:ring-primary"
+                  style={{ animationDelay: `${400 + i * 150}ms` }}
                   role="listitem"
                 >
-                  <div className="relative overflow-hidden shrink-0">
-                    <picture className="block w-full h-full">
-                      <source srcSet={a.imgWebp} type="image/webp" />
-                      <img
-                        src={a.img}
-                        alt={`${a.name} accommodation at Te Puke Holiday Park`}
-                        loading="lazy"
-                        className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
-                        width="400"
-                        height="300"
-                      />
-                    </picture>
+                  <div className="relative overflow-hidden shrink-0 h-64">
+                    <img
+                      src={a.img}
+                      alt={`${a.name} accommodation at Te Puke Holiday Park`}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                      width="400"
+                      height="300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     {a.badge && (
-                      <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-full" aria-label="Most popular choice">
+                      <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg" aria-label="Most popular choice">
                         {a.badge}
                       </span>
                     )}
                   </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="font-heading text-xl font-bold text-foreground mb-3">{a.name}</h3>
-                    <p className="text-sm text-muted-foreground flex-grow">{a.desc}</p>
+                  <div className="p-8 flex-grow flex flex-col bg-card z-10 relative group-hover:-translate-y-2 transition-transform duration-500 rounded-b-2xl">
+                    <h3 className="font-heading text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{a.name}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">{a.desc}</p>
                   </div>
                 </article>
               ))}
@@ -116,34 +128,34 @@ const Accommodation = () => {
           </div>
 
           {/* Facilities */}
-          <div className="mb-16 bg-accent/30 rounded-2xl p-6 md:p-10 border border-border/50">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4 opacity-0 animate-fade-in-up [animation-delay:600ms]">Facilities Included</h2>
-            <p className="text-foreground/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up [animation-delay:650ms]">
-              When you stay at Te Puke Holiday Park, you get access to practical facilities that make long stays easier. These facilities are designed for seasonal workers, backpackers and RSE crews who need a reliable place to come home to each day.
+          <div className="mb-20 bg-accent/20 rounded-3xl p-8 md:p-12 border border-border/50 shadow-inner">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6 text-center opacity-0 animate-fade-in-up [animation-delay:600ms]">Facilities Included</h2>
+            <p className="text-foreground/80 mb-12 max-w-2xl mx-auto text-center text-lg opacity-0 animate-fade-in-up [animation-delay:650ms]">
+              When you stay at Te Puke Holiday Park, you get access to practical facilities that make long stays easier. These facilities are designed for seasonal workers, backpackers and RSE crews who need a reliable home base.
             </p>
-            <ul ref={facilitiesRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6" role="list" aria-label="Park facilities">
+            <ul ref={facilitiesRef} className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" role="list" aria-label="Park facilities">
               {facilities.map((f, i) => (
                 <li
                   key={f.label}
                   data-reveal
-                  className="facility-card group flex items-center gap-4 bg-background rounded-xl p-4 md:p-5 border border-border/50 hover:border-primary/30 transition-colors"
+                  className="facility-card group flex flex-col items-center gap-4 bg-background rounded-2xl p-6 md:p-8 border border-border/50 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                   style={{ "--i": i } as React.CSSProperties}
                   role="listitem"
                 >
-                  <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
-                    <f.icon className="h-6 w-6 text-primary" />
+                  <div className="bg-primary/10 p-5 rounded-full shrink-0 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-colors duration-300" aria-hidden="true">
+                    <f.icon className="h-8 w-8" />
                   </div>
-                  <span className="text-sm md:text-base font-medium text-foreground">{f.label}</span>
+                  <span className="text-base md:text-lg font-bold text-foreground text-center">{f.label}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Two Column Section for RSE & Location */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
-            <div className="bg-card p-6 md:p-8 rounded-2xl border border-border/50 shadow-sm opacity-0 animate-fade-in-up [animation-delay:800ms]">
-              <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                <Users className="h-6 w-6 text-secondary-foreground" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-20">
+            <div className="bg-card p-8 md:p-10 rounded-3xl border border-border shadow-lg opacity-0 animate-fade-in-up hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: "800ms" }}>
+              <div className="bg-secondary w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-md transform -rotate-6">
+                <Users className="h-8 w-8 text-secondary-foreground" />
               </div>
               <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Perfect for Seasonal Work and RSE Crews</h2>
               <p className="text-foreground/80 mb-4">
@@ -165,9 +177,9 @@ const Accommodation = () => {
               </p>
             </div>
 
-            <div className="bg-card p-6 md:p-8 rounded-2xl border border-border/50 shadow-sm opacity-0 animate-fade-in-up [animation-delay:900ms]">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                <MapPin className="h-6 w-6 text-primary" />
+            <div className="bg-card p-8 md:p-10 rounded-3xl border border-border shadow-lg opacity-0 animate-fade-in-up hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: "900ms" }}>
+              <div className="bg-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-md transform rotate-6">
+                <MapPin className="h-8 w-8 text-primary-foreground" />
               </div>
               <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Location – Your Base in the Kiwifruit Capital</h2>
               <p className="text-foreground/80 mb-4">
