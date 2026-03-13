@@ -1,112 +1,12 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
-import { toast } from "sonner";
-import emailjs from '@emailjs/browser';
+import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
 
 const Contact = () => {
-  const [sending, setSending] = useState(false);
-  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
-  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
-  const [messageLength, setMessageLength] = useState(0);
-
-  const validateField = (name: string, value: string) => {
-    let error = '';
-
-    switch (name) {
-      case 'from_name':
-        if (!value.trim()) error = 'Name is required';
-        else if (value.trim().length < 2) error = 'Name must be at least 2 characters';
-        break;
-      case 'reply_to':
-        if (!value.trim()) error = 'Email is required';
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Please enter a valid email address';
-        break;
-      case 'subject':
-        if (!value.trim()) error = 'Subject is required';
-        else if (value.trim().length < 3) error = 'Subject must be at least 3 characters';
-        break;
-      case 'message':
-        if (!value.trim()) error = 'Message is required';
-        else if (value.trim().length < 10) error = 'Message must be at least 10 characters';
-        break;
-    }
-
-    return error;
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setTouched(prev => ({ ...prev, [name]: true }));
-    const error = validateField(name, value);
-    setFormErrors(prev => ({ ...prev, [name]: error }));
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    if (name === 'message') {
-      setMessageLength(value.length);
-    }
-    if (touched[name]) {
-      const error = validateField(name, value);
-      setFormErrors(prev => ({ ...prev, [name]: error }));
-    }
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    // Validate all fields
-    const errors: { [key: string]: string } = {};
-    let hasErrors = false;
-
-    ['from_name', 'reply_to', 'subject', 'message'].forEach(fieldName => {
-      const value = formData.get(fieldName) as string;
-      const error = validateField(fieldName, value);
-      if (error) {
-        errors[fieldName] = error;
-        hasErrors = true;
-      }
-    });
-
-    if (hasErrors) {
-      setFormErrors(errors);
-      setTouched({
-        from_name: true,
-        reply_to: true,
-        subject: true,
-        message: true
-      });
-      setSending(false);
-      toast.error("Please fix the errors in the form and try again.");
-      return;
-    }
-
-    try {
-      await emailjs.sendForm(
-        'service_vsteji2',
-        'template_mctrp0o',
-        form,
-        'rr7GRl2yAz-lkyzdC'
-      );
-      toast.success("Message sent! We'll get back to you within 24 hours.");
-      form.reset();
-      setFormErrors({});
-      setTouched({});
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      toast.error("Failed to send message. Please try again or call us directly.");
-    } finally {
-      setSending(false);
-    }
-  };
+  return (
 
   return (
     <Layout>
