@@ -26,7 +26,7 @@ type Photo = { src: string; label: string; cat: string };
 /* Ordered: Accommodation → Outdoors → Amenities */
 const galleryPhotos: Photo[] = [
   /* Accommodation */
-  { src: `${B}.15%20(2).webp`, label: "Pods — cosy private spaces", cat: "Accommodation" },
+  { src: `${B}.15%20(2).webp`, label: "TV Lounge — shared community area", cat: "Amenities" },
   { src: `${B}.15.webp`, label: "Caravans — room for groups", cat: "Accommodation" },
   { src: `${B}.16%20(1).webp`, label: "Cabins — comfort for small groups", cat: "Accommodation" },
   { src: `${B}.15%20(1).webp`, label: "Caravan Interior", cat: "Accommodation" },
