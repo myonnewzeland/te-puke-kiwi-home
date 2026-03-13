@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Home, Briefcase, Users } from "lucide-react";
+import { Home, Briefcase, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 import Layout from "@/components/Layout";
 import heroImg from "@/assets/hero-kiwifruit.jpg";
 import heroImgWebp from "@/assets/hero-kiwifruit.webp";
+import galleryPool from "@/assets/gallery-pool.jpg";
+import gallerySunset1 from "@/assets/gallery-sunset1.jpg";
+import gallerySunset2 from "@/assets/gallery-sunset2.jpg";
+import galleryBasketball from "@/assets/gallery-basketball.jpg";
+import galleryKitchen from "@/assets/gallery-kitchen.jpg";
+import galleryGrounds from "@/assets/gallery-grounds.jpg";
 
 const cards = [
   {
