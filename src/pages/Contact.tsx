@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
@@ -6,8 +5,6 @@ import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9?g_st=aw";
 
 const Contact = () => {
-  return (
-
   return (
     <Layout>
       <Helmet>
@@ -24,142 +21,13 @@ const Contact = () => {
               Book Te Puke Accommodation for Workers and Backpackers
             </h2>
             <p className="text-muted-foreground opacity-0 animate-fade-in-up [animation-delay:200ms] max-w-2xl mx-auto">
-              Whether you're a seasonal worker, backpacker or RSE employer — get in touch to book your stay. Fill out the form below or contact us directly.
+              Whether you're a seasonal worker, backpacker or RSE employer — get in touch to book your stay. Contact us directly using the options below.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 opacity-0 animate-fade-in-up [animation-delay:300ms]">
 
-            {/* Native Contact Form */}
-            <div className="bg-card rounded-xl border border-border shadow-sm p-6 md:p-8 flex flex-col justify-center">
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Send us a Message</h3>
-              <p className="text-sm text-muted-foreground mb-6">We typically respond within 24 hours during business days.</p>
-
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                <div>
-                  <label htmlFor="from_name" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Full Name <span className="text-destructive">*</span>
-                  </label>
-                  <input
-                    id="from_name"
-                    name="from_name"
-                    type="text"
-                    required
-                    maxLength={100}
-                    placeholder="John Smith"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.from_name ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                      }`}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    aria-invalid={touched.from_name && !!formErrors.from_name}
-                    aria-describedby={formErrors.from_name ? 'from_name-error' : undefined}
-                  />
-                  {touched.from_name && formErrors.from_name && (
-                    <p id="from_name-error" className="text-xs text-destructive mt-1.5" role="alert">
-                      {formErrors.from_name}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="reply_to" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Email Address <span className="text-destructive">*</span>
-                  </label>
-                  <input
-                    id="reply_to"
-                    name="reply_to"
-                    type="email"
-                    required
-                    maxLength={255}
-                    placeholder="john.smith@example.com"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.reply_to ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                      }`}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    aria-invalid={touched.reply_to && !!formErrors.reply_to}
-                    aria-describedby={formErrors.reply_to ? 'reply_to-error' : undefined}
-                  />
-                  {touched.reply_to && formErrors.reply_to && (
-                    <p id="reply_to-error" className="text-xs text-destructive mt-1.5" role="alert">
-                      {formErrors.reply_to}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Subject <span className="text-destructive">*</span>
-                  </label>
-                  <input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    required
-                    maxLength={200}
-                    placeholder="Accommodation inquiry"
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow ${formErrors.subject ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                      }`}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    aria-invalid={touched.subject && !!formErrors.subject}
-                    aria-describedby={formErrors.subject ? 'subject-error' : undefined}
-                  />
-                  {touched.subject && formErrors.subject && (
-                    <p id="subject-error" className="text-xs text-destructive mt-1.5" role="alert">
-                      {formErrors.subject}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Your Message <span className="text-destructive">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    maxLength={2000}
-                    placeholder="Tell us about your dates, group size, and room requirements..."
-                    className={`w-full rounded-lg border bg-background px-4 py-2.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-shadow ${formErrors.message ? 'border-destructive focus:ring-destructive/50' : 'border-input'
-                      }`}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    aria-invalid={touched.message && !!formErrors.message}
-                    aria-describedby={formErrors.message ? 'message-error' : undefined}
-                  />
-                  {touched.message && formErrors.message && (
-                    <p id="message-error" className="text-xs text-destructive mt-1.5" role="alert">
-                      {formErrors.message}
-                    </p>
-                  )}
-                  <p className="text-xs text-muted-foreground text-right mt-1">
-                    {messageLength} / 2000 characters
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-border">
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-semibold px-6 py-3.5 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  >
-                    <Send className="h-4 w-4" aria-hidden="true" />
-                    {sending ? "Sending..." : "Send Message"}
-                  </button>
-                </div>
-
-                <div className="flex items-start gap-2 bg-accent/30 rounded-lg p-3 border border-accent/50">
-                  <Clock className="h-4 w-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                  <p className="text-xs text-foreground">
-                    <strong>Response time:</strong> We aim to reply to all inquiries within 24 hours during business days.
-                  </p>
-                </div>
-              </form>
-            </div>
-
-            {/* Contact Info Right Column */}
+            {/* Contact Info Left Column */}
             <div className="space-y-8">
               <div className="bg-accent rounded-xl p-6 md:p-8 border border-border shadow-sm">
                 <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-6">
@@ -219,36 +87,49 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map & Directions */}
-              <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
-                <div className="p-6 md:p-8 border-b border-border">
-                  <h3 className="font-heading text-lg font-bold text-foreground mb-2">Our Location</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Easy access from State Highway 2. Click below for GPS navigation.
-                  </p>
-                  <a
-                    href={GOOGLE_MAPS_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-medium px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  >
-                    <MapPin className="h-4 w-4" aria-hidden="true" />
-                    Get Directions
-                  </a>
+              {/* Quick Info */}
+              <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Response Time</h3>
+                    <p className="text-sm text-muted-foreground">
+                      We aim to reply to all inquiries within 24 hours during business days. For urgent bookings, please call or WhatsApp directly.
+                    </p>
+                  </div>
                 </div>
-                <div className="h-64 sm:h-80 w-full">
-                  <iframe
-                    title="Te Puke Holiday Park location map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.5!2d176.325!3d-37.783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6e574df79a5455%3A0x5e38324ef1ef71a3!2s581%20Jellicoe%20Street%2C%20Te%20Puke%203119%2C%20New%20Zealand!5e0!3m2!1sen!2snz!4v1"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
+              </div>
+            </div>
+
+            {/* Map & Directions Right Column */}
+            <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
+              <div className="p-6 md:p-8 border-b border-border">
+                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Our Location</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Easy access from State Highway 2. Click below for GPS navigation.
+                </p>
+                <a
+                  href={GOOGLE_MAPS_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-medium px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  Get Directions
+                </a>
+              </div>
+              <div className="h-64 sm:h-80 w-full">
+                <iframe
+                  title="Te Puke Holiday Park location map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.5!2d176.325!3d-37.783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6e574df79a5455%3A0x5e38324ef1ef71a3!2s581%20Jellicoe%20Street%2C%20Te%20Puke%203119%2C%20New%20Zealand!5e0!3m2!1sen!2snz!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
             </div>
           </div>
