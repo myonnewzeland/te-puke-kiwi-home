@@ -56,16 +56,6 @@ const Footer = () => (
               <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
               <span>021 0891 7258</span>
             </a>
-            <a
-              href="mailto:info@tepukeholidaypark.co.nz"
-              className="flex items-center gap-2 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1 break-all"
-              aria-label="Email us at info@tepukeholidaypark.co.nz"
-            >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0l1.34.95c.097.433.07.864-.233 1.087-.723l3.114-5.04a2 2 0 012.718-2.718L18.874 2.874a2 2 0 00-.718-2.718L13.727.322a2 2 0 00-1.087.723l-5.04 3.114a2 2 0 00-.723 1.087.233 1.087l5.26 7.89z" />
-              </svg>
-              <span>info@tepukeholidaypark.co.nz</span>
-            </a>
           </div>
         </div>
       </div>
