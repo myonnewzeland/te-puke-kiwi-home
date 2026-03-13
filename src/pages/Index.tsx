@@ -43,7 +43,7 @@ const Index = () => (
           alt="Beautiful kiwifruit orchards in Bay of Plenty, New Zealand - the perfect setting for your holiday accommodation"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           width="1920"
           height="1080"
         />
