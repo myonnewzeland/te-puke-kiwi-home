@@ -33,7 +33,27 @@ const cards = [
   },
 ];
 
-const Index = () => (
+const galleryImages = [
+  { src: galleryPool, alt: "Swimming pool area at Te Puke Holiday Park" },
+  { src: gallerySunset1, alt: "Stunning sunset over Te Puke Holiday Park" },
+  { src: galleryGrounds, alt: "Park grounds with caravans and cabins under shady trees" },
+  { src: galleryKitchen, alt: "Shared kitchen facilities at Te Puke Holiday Park" },
+  { src: galleryBasketball, alt: "Basketball court and recreation area" },
+  { src: gallerySunset2, alt: "Evening sky view from Te Puke Holiday Park" },
+];
+
+const Index = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % galleryImages.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + galleryImages.length) % galleryImages.length), []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
   <Layout>
     <Helmet>
       <title>Te Puke Holiday Park — Affordable Accommodation in the Kiwifruit Capital</title>
