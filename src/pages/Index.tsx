@@ -31,6 +31,7 @@ const Index = () => {
   ];
 
   const galleryPhotos = [
+    // Existing photos
     { src: `${B}.15%20(2).webp`, label: t(translations.gallery.tvLounge), cat: "Amenities" },
     { src: `${B}.15.webp`, label: t(translations.gallery.caravansGroups), cat: "Accommodation" },
     { src: `${B}.16%20(1).webp`, label: t(translations.gallery.cabinsSmall), cat: "Accommodation" },
@@ -42,6 +43,61 @@ const Index = () => {
     { src: `${B}.17%20(1).webp`, label: t(translations.gallery.sharedFacilities), cat: "Amenities" },
     { src: `${B}.17%20(2).webp`, label: t(translations.gallery.sharedKitchen), cat: "Amenities" },
     { src: `${B}.18%20(1).webp`, label: t(translations.gallery.recreation), cat: "Amenities" },
+
+    // New numbered photos
+    { src: "https://im.tepukeholidaypark.co.nz/1.jpeg", label: "Te Puke Holiday Park", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/2.jpeg", label: "Park View", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/3.jpeg", label: "Accommodation", cat: "Accommodation" },
+    { src: "https://im.tepukeholidaypark.co.nz/4.jpeg", label: "Facilities", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/5.jpeg", label: "Grounds", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/6.jpeg", label: "Recreation Area", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/7.jpeg", label: "Community Space", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/8.jpeg", label: "Scenic Views", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/9.jpeg", label: "Holiday Life", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/10.jpeg", label: "Park Amenities", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/11.jpeg", label: "Comfortable Living", cat: "Accommodation" },
+    { src: "https://im.tepukeholidaypark.co.nz/12.jpeg", label: "Outdoor Spaces", cat: "Outdoors" },
+    { src: "https://im.tepukeholidaypark.co.nz/13.jpeg", label: "Guest Areas", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/14.jpeg", label: "Park Facilities", cat: "Amenities" },
+    { src: "https://im.tepukeholidaypark.co.nz/15.jpeg", label: "Holiday Atmosphere", cat: "Outdoors" },
+
+    // Pods image
+    { src: "https://im.tepukeholidaypark.co.nz/pods.webp", label: "Premium Pods", cat: "Accommodation" },
+
+    // Additional WhatsApp photos (13/03)
+    { src: `${B}.13%20(1).webp`, label: "Park Life", cat: "Outdoors" },
+    { src: `${B}.13%20(2).webp`, label: "Social Area", cat: "Amenities" },
+    { src: `${B}.13.webp`, label: "Common Spaces", cat: "Amenities" },
+    { src: `${B}.14%20(1).webp`, label: "Ground Details", cat: "Outdoors" },
+    { src: `${B}.14%20(2).webp`, label: "Recreation", cat: "Amenities" },
+    { src: `${B}.14.webp`, label: "Nature Views", cat: "Outdoors" },
+
+    // WhatsApp photos (18/03) - WebP
+    { src: `${B.replace('16.17', '14.46')}.11%20(1).jpeg`, label: "Life at the Park", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.11.jpeg`, label: "Daily Living", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.12%20(1).jpeg`, label: "Comfort Zones", cat: "Accommodation" },
+    { src: `${B.replace('16.17', '14.46')}.12.jpeg`, label: "Cozy Spaces", cat: "Accommodation" },
+    { src: `${B.replace('16.17', '14.46')}.13%20(1).jpeg`, label: "Guest Experience", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.13%20(2).jpeg`, label: "Park Amenities", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.13.jpeg`, label: "Relaxation Areas", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.14%20(1).jpeg`, label: "Outdoor Activities", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.14.jpeg`, label: "Scenic Spots", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.15.jpeg`, label: "Evening Vibes", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.16%20(1).jpeg`, label: "Community Spirit", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.16%20(2).jpeg`, label: "Shared Moments", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.16.jpeg`, label: "Togetherness", cat: "Amenities" },
+    { src: `${B.replace('16.17', '14.46')}.17%20(1).jpeg`, label: "Peaceful Setting", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.17%20(2).jpeg`, label: "Nature Surroundings", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.17.jpeg`, label: "Tranquil Times", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.18%20(1).jpeg`, label: "Park Atmosphere", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.18.jpeg`, label: "Holiday Mood", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.19%20(1).jpeg`, label: "Golden Hour", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.19%20(2).jpeg`, label: "Sunset Views", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.19.jpeg`, label: "Evening Glow", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.20%20(1).jpeg`, label: "Night Ambience", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.20%20(2).jpeg`, label: "Starlight", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.20.jpeg`, label: "Peaceful Night", cat: "Outdoors" },
+    { src: `${B.replace('16.17', '14.46')}.21.jpeg`, label: "Morning Light", cat: "Outdoors" },
   ];
 
   const filtered = filter === "All" ? galleryPhotos : galleryPhotos.filter(p => p.cat === filter);
