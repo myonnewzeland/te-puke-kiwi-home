@@ -6,9 +6,23 @@ import Layout from "@/components/Layout";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 
-const B = "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17";
-const heroImage = `${B}.16%20(2).webp`;
-const featuredImg = `${B}.16.webp`;
+// Helper function to properly encode image URLs
+const encodeImageUrl = (url: string) => {
+  // Only encode if not already encoded
+  if (url.includes('%20') || url.includes('%28') || url.includes('%29')) {
+    return url; // Already encoded
+  }
+  // Replace spaces with %20 and encode parentheses
+  return url.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+};
+
+const B = "https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17";
+const heroImage = encodeImageUrl(`${B}.16 (2).webp`);
+const featuredImg = encodeImageUrl(`${B}.16.webp`);
+
+// Debug: Log URLs to console
+console.log('🖼️ Hero Image URL:', heroImage);
+console.log('🖼️ Featured Image URL:', featuredImg);
 
 const CATS_EN = ["All", "Accommodation", "Outdoors", "Amenities"] as const;
 
@@ -16,6 +30,12 @@ const Index = () => {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<string>("All");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = useCallback((src: string) => {
+    setImageErrors(prev => new Set(prev).add(src));
+    console.error(`Failed to load image: ${src}`);
+  }, []);
 
   const catLabels: Record<string, string> = {
     All: t(translations.home.all),
@@ -32,78 +52,67 @@ const Index = () => {
 
   const galleryPhotos = [
     // Original WhatsApp photos (13/03 at 16:17-18)
-    { src: `${B}.15%20(2).webp`, label: t(translations.gallery.tvLounge), cat: "Amenities" },
-    { src: `${B}.15.webp`, label: t(translations.gallery.caravansGroups), cat: "Accommodation" },
-    { src: `${B}.16%20(1).webp`, label: t(translations.gallery.cabinsSmall), cat: "Accommodation" },
-    { src: `${B}.15%20(1).webp`, label: t(translations.gallery.caravanInterior), cat: "Accommodation" },
-    { src: `${B}.17.webp`, label: t(translations.gallery.relaxOutdoor), cat: "Outdoors" },
-    { src: `${B}.18%20(2).webp`, label: t(translations.gallery.eveningAtmosphere), cat: "Outdoors" },
-    { src: `${B}.18.webp`, label: t(translations.gallery.surroundings), cat: "Outdoors" },
-    { src: `${B}.16%20(2).webp`, label: t(translations.gallery.greenViews), cat: "Outdoors" },
-    { src: `${B}.17%20(1).webp`, label: t(translations.gallery.sharedFacilities), cat: "Amenities" },
-    { src: `${B}.17%20(2).webp`, label: t(translations.gallery.sharedKitchen), cat: "Amenities" },
-    { src: `${B}.18%20(1).webp`, label: t(translations.gallery.recreation), cat: "Amenities" },
-    { src: `${B}.13%20(1).webp`, label: "Park Atmosphere", cat: "Outdoors" },
-    { src: `${B}.13%20(2).webp`, label: "Community Space", cat: "Amenities" },
-    { src: `${B}.13.webp`, label: "Shared Areas", cat: "Amenities" },
-    { src: `${B}.14%20(1).webp`, label: "Ground Facilities", cat: "Amenities" },
-    { src: `${B}.14%20(2).webp`, label: "Recreation Zone", cat: "Amenities" },
-    { src: `${B}.14.webp`, label: "Park Views", cat: "Outdoors" },
+    { src: encodeImageUrl(`${B}.15 (2).webp`), label: t(translations.gallery.tvLounge), cat: "Amenities" },
+    { src: encodeImageUrl(`${B}.15.webp`), label: t(translations.gallery.caravansGroups), cat: "Accommodation" },
+    { src: encodeImageUrl(`${B}.16 (1).webp`), label: t(translations.gallery.cabinsSmall), cat: "Accommodation" },
+    { src: encodeImageUrl(`${B}.15 (1).webp`), label: t(translations.gallery.caravanInterior), cat: "Accommodation" },
+    { src: encodeImageUrl(`${B}.17.webp`), label: t(translations.gallery.relaxOutdoor), cat: "Outdoors" },
+    { src: encodeImageUrl(`${B}.18 (2).webp`), label: t(translations.gallery.eveningAtmosphere), cat: "Outdoors" },
+    { src: encodeImageUrl(`${B}.18.webp`), label: t(translations.gallery.surroundings), cat: "Outdoors" },
+    { src: encodeImageUrl(`${B}.16 (2).webp`), label: t(translations.gallery.greenViews), cat: "Outdoors" },
+    { src: encodeImageUrl(`${B}.17 (1).webp`), label: t(translations.gallery.sharedFacilities), cat: "Amenities" },
+    { src: encodeImageUrl(`${B}.17 (2).webp`), label: t(translations.gallery.sharedKitchen), cat: "Amenities" },
+    { src: encodeImageUrl(`${B}.18 (1).webp`), label: t(translations.gallery.recreation), cat: "Amenities" },
 
     // Numbered photos
-    { src: "https://im.tepukeholidaypark.co.nz/1.jpeg", label: "Vida en Te Puke Holiday Park", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/2.jpeg", label: "Ambiente Acogedor", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/3.jpeg", label: "Alojamiento Cómodo", cat: "Accommodation" },
-    { src: "https://im.tepukeholidaypark.co.nz/4.jpeg", label: "Instalaciones Modernas", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/5.jpeg", label: "Zonas Verdes", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/6.jpeg", label: "Área Recreativa", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/7.jpeg", label: "Espacios Compartidos", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/8.jpeg", label: "Vistas Panorámicas", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/9.jpeg", label: "Estilo de Vida", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/10.jpeg", label: "Comodidades del Park", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/11.jpeg", label: "Hogar Temporal", cat: "Accommodation" },
-    { src: "https://im.tepukeholidaypark.co.nz/12.jpeg", label: "Exteriores", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/13.jpeg", label: "Zonas de Estancia", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/14.jpeg", label: "Servicios del Park", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/15.jpeg", label: "Ambiente Festivo", cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/1.jpeg"), label: t(translations.gallery.lifeAtPark), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/2.jpeg"), label: t(translations.gallery.cozyAtmosphere), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/3.jpeg"), label: t(translations.gallery.comfortableStay), cat: "Accommodation" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/4.jpeg"), label: t(translations.gallery.modernFacilities), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/5.jpeg"), label: t(translations.gallery.greenAreas), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/6.jpeg"), label: t(translations.gallery.recreationalArea), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/7.jpeg"), label: t(translations.gallery.sharedSpaces), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/8.jpeg"), label: t(translations.gallery.panoramicViews), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/9.jpeg"), label: t(translations.gallery.lifestyle), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/10.jpeg"), label: t(translations.gallery.parkAmenities), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/11.jpeg"), label: t(translations.gallery.temporaryHome), cat: "Accommodation" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/12.jpeg"), label: t(translations.gallery.outdoors), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/13.jpeg"), label: t(translations.gallery.stayingAreas), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/14.jpeg"), label: t(translations.gallery.parkServices), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/15.jpeg"), label: t(translations.gallery.festiveAtmosphere), cat: "Outdoors" },
 
     // Premium Pods
-    { src: "https://im.tepukeholidaypark.co.nz/pods.webp", label: "Premium Pods - Alojamiento Moderno", cat: "Accommodation" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/pods.webp"), label: t(translations.gallery.premiumPods), cat: "Accommodation" },
 
-    // Additional WhatsApp photos (13/03 at 16:17-18)
-    { src: `${B}.15%20(1).webp`, label: "Interior de Caravana", cat: "Accommodation" },
-    { src: `${B}.16%20(2).webp`, label: "Vistas Verdes", cat: "Outdoors" },
-    { src: `${B}.17%20(1).webp`, label: "Instalaciones Compartidas", cat: "Amenities" },
-    { src: `${B}.17%20(2).webp`, label: "Cocina Compartida", cat: "Amenities" },
-    { src: `${B}.18%20(1).webp`, label: "Zona de Recreación", cat: "Amenities" },
-    { src: `${B}.18.webp`, label: "Alrededores del Park", cat: "Outdoors" },
+    // Facilities
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/Ladies bathroom.webp"), label: t(translations.gallery.ladiesBathroom), cat: "Amenities" },
 
     // WhatsApp photos (18/03 at 14:46-21)
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.11%20(1).jpeg", label: "Momento del Día", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.11.jpeg", label: "Vida Cotidiana", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.12%20(1).jpeg", label: "Espacio Acogedor", cat: "Accommodation" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.12.jpeg", label: "Rincón Tranquilo", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.13%20(1).jpeg", label: "Experiencia del Huésped", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.13%20(2).jpeg", label: "Comodidades", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.13.jpeg", label: "Zonas de Relax", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.14%20(1).jpeg", label: "Actividades al Aire Libre", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.14.jpeg", label: "Rincones Pintorescos", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.15.jpeg", label: "Atmósfera Vespertina", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.16%20(1).jpeg", label: "Espíritu Comunitario", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.16%20(2).jpeg", label: "Momentos Compartidos", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.16.jpeg", label: "Convivencia", cat: "Amenities" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.17%20(1).jpeg", label: "Paz y Tranquilidad", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.17%20(2).jpeg", label: "Rodeado Natural", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.17.jpeg", label: "Serenidad", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.18%20(1).jpeg", label: "Ambiente del Park", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.18.jpeg", label: "Tarde Perfecta", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.19%20(1).jpeg", label: "Hora Dorada", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.19%20(2).jpeg", label: "Atardecer", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.19.jpeg", label: "Resplandor", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.20%20(1).jpeg", label: "Ambiente Nocturno", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.20%20(2).jpeg", label: "Bajo las Estrellas", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.20.jpeg", label: "Noche Serena", cat: "Outdoors" },
-    { src: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-18%20at%2014.46.21.jpeg", label: "Luz de la Mañana", cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.11 (1).jpeg"), label: t(translations.gallery.momentOfDay), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.11.jpeg"), label: t(translations.gallery.dailyLife), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.12 (1).jpeg"), label: t(translations.gallery.welcomingSpace), cat: "Accommodation" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.12.jpeg"), label: t(translations.gallery.quietCorner), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.13 (1).jpeg"), label: t(translations.gallery.guestExperience), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.13 (2).jpeg"), label: t(translations.gallery.amenities_), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.13.jpeg"), label: t(translations.gallery.relaxationAreas), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.14 (1).jpeg"), label: t(translations.gallery.outdoorActivities), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.14.jpeg"), label: t(translations.gallery.picturesqueSpots), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.15.jpeg"), label: t(translations.gallery.eveningAtmosphere_), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.16 (1).jpeg"), label: t(translations.gallery.communitySpirit), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.16 (2).jpeg"), label: t(translations.gallery.sharedMoments), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.16.jpeg"), label: t(translations.gallery.convivance), cat: "Amenities" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.17 (1).jpeg"), label: t(translations.gallery.peaceTranquility), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.17 (2).jpeg"), label: t(translations.gallery.naturalSurroundings), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.17.jpeg"), label: t(translations.gallery.serenity), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.18 (1).jpeg"), label: t(translations.gallery.parkEnvironment), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.18.jpeg"), label: t(translations.gallery.perfectEvening), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.19 (1).jpeg"), label: t(translations.gallery.goldenHour), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.19 (2).jpeg"), label: t(translations.gallery.sunset), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.19.jpeg"), label: t(translations.gallery.glow), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.20 (1).jpeg"), label: t(translations.gallery.nightAtmosphere), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.20 (2).jpeg"), label: t(translations.gallery.underStars), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.20.jpeg"), label: t(translations.gallery.sereneNight), cat: "Outdoors" },
+    { src: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-18 at 14.46.21.jpeg"), label: t(translations.gallery.morningLight), cat: "Outdoors" },
   ];
 
   const filtered = filter === "All" ? galleryPhotos : galleryPhotos.filter(p => p.cat === filter);
@@ -138,7 +147,19 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden" aria-label="Hero">
-        <img src={heroImage} alt="Te Puke Holiday Park, New Zealand" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" width="1920" height="1080" />
+        <img 
+          src={heroImage} 
+          alt="Te Puke Holiday Park, New Zealand" 
+          className="absolute inset-0 w-full h-full object-cover" 
+          loading="eager" 
+          fetchPriority="high" 
+          width="1920" 
+          height="1080"
+          onError={(e) => {
+            handleImageError(heroImage);
+            e.currentTarget.src = '/placeholder.svg';
+          }}
+        />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden="true" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight opacity-0 animate-fade-in-up">
@@ -190,7 +211,16 @@ const Index = () => {
 
           {/* Featured photo */}
           <div className="relative group overflow-hidden rounded-3xl h-[50vh] min-h-[320px] mb-6 shadow-xl opacity-0 animate-fade-in-up [animation-delay:150ms] cursor-pointer" onClick={() => setLightboxIdx(-1)}>
-            <img src={featuredImg} alt={t(translations.gallery.parkGrounds)} className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="eager" />
+            <img 
+              src={featuredImg} 
+              alt={t(translations.gallery.parkGrounds)} 
+              className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" 
+              loading="eager"
+              onError={(e) => {
+                handleImageError(featuredImg);
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-6 text-white flex items-end gap-3">
               <span className="bg-primary/90 backdrop-blur-sm text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">{t(translations.home.parkGrounds)}</span>
@@ -215,7 +245,16 @@ const Index = () => {
           <div className="[column-count:1] sm:[column-count:2] md:[column-count:3] [column-gap:1rem]">
             {filtered.map((photo, i) => (
               <div key={`${filter}-${i}`} className="group relative overflow-hidden rounded-2xl break-inside-avoid mb-4 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer" onClick={() => setLightboxIdx(i)}>
-                <img src={photo.src} alt={photo.label} className="w-full block transition-transform duration-700 ease-out group-hover:scale-105" loading={i < 4 ? "eager" : "lazy"} />
+                <img 
+                  src={photo.src} 
+                  alt={photo.label} 
+                  className="w-full block transition-transform duration-700 ease-out group-hover:scale-105" 
+                  loading={i < 4 ? "eager" : "lazy"}
+                  onError={(e) => {
+                    handleImageError(photo.src);
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-10 pb-4 px-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-white text-sm font-semibold leading-snug">{photo.label}</p>
                   <p className="text-white/60 text-xs mt-0.5">{catLabels[photo.cat]}</p>
@@ -265,7 +304,16 @@ const Index = () => {
               </button>
             )}
             <div className="max-w-5xl max-h-full flex flex-col items-center gap-4" onClick={e => e.stopPropagation()}>
-              <img src={photo.src} alt={photo.label} className="max-h-[80vh] max-w-full object-contain rounded-2xl shadow-2xl" loading="eager" />
+              <img 
+                src={photo.src} 
+                alt={photo.label} 
+                className="max-h-[80vh] max-w-full object-contain rounded-2xl shadow-2xl" 
+                loading="eager"
+                onError={(e) => {
+                  handleImageError(photo.src);
+                  e.currentTarget.src = '/placeholder.svg';
+                }}
+              />
               <div className="text-center">
                 <p className="text-white font-semibold text-lg">{photo.label}</p>
                 <p className="text-white/50 text-sm">{catLabels[photo.cat]}</p>

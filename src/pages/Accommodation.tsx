@@ -6,8 +6,17 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 
-const IMG_BASE = "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17";
-const heroImg = `${IMG_BASE}.15%20(1).webp`;
+// Helper function to properly encode image URLs
+const encodeImageUrl = (url: string) => {
+  // Only encode if not already encoded
+  if (url.includes('%20') || url.includes('%28') || url.includes('%29')) {
+    return url; // Already encoded
+  }
+  return url.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+};
+
+const IMG_BASE = "https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17";
+const heroImg = encodeImageUrl(`${IMG_BASE}.15 (1).webp`);
 
 const Accommodation = () => {
   const facilitiesRef = useScrollReveal<HTMLUListElement>();
@@ -16,18 +25,18 @@ const Accommodation = () => {
 
   const accommodations = [
     {
-      img: "https://im.tepukeholidaypark.co.nz/pods.webp",
+      img: encodeImageUrl("https://im.tepukeholidaypark.co.nz/pods.webp"),
       name: t(translations.acc.pods),
       badge: t(translations.acc.mostPopular),
       desc: t(translations.acc.podsDesc),
     },
     {
-      img: "https://im.tepukeholidaypark.co.nz/WhatsApp%20Image%202026-03-13%20at%2016.17.15%20(1).webp",
+      img: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17.15 (1).webp"),
       name: t(translations.acc.caravans),
       desc: t(translations.acc.caravansDesc),
     },
     {
-      img: `${IMG_BASE}.16%20(1).webp`,
+      img: encodeImageUrl(`${IMG_BASE}.16 (1).webp`),
       name: t(translations.acc.cabins),
       desc: t(translations.acc.cabinsDesc),
     },
@@ -61,7 +70,17 @@ const Accommodation = () => {
 
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden" aria-labelledby="accommodation-heading">
         <picture className="absolute inset-0 w-full h-full">
-          <img src={heroImg} alt="Beautiful view at Te Puke Holiday Park" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
+          <img 
+            src={heroImg} 
+            alt="Beautiful view at Te Puke Holiday Park" 
+            className="absolute inset-0 w-full h-full object-cover" 
+            loading="eager" 
+            fetchPriority="high"
+            onError={(e) => {
+              console.error(`Failed to load hero image: ${heroImg}`);
+              e.currentTarget.src = '/placeholder.svg';
+            }}
+          />
         </picture>
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden="true" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
@@ -84,9 +103,20 @@ const Accommodation = () => {
             <p className="text-foreground/80 mb-8 opacity-0 animate-fade-in-up [animation-delay:250ms]">{t(translations.acc.typesDesc)}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list" aria-label="Accommodation options">
               {accommodations.map((a, i) => (
-                <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
+                 <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
                   <div className="relative overflow-hidden shrink-0 h-64">
-                    <img src={a.img} alt={`${a.name} - Te Puke Holiday Park`} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" width="400" height="300" />
+                    <img 
+                      src={a.img} 
+                      alt={`${a.name} - Te Puke Holiday Park`} 
+                      loading="lazy" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
+                      width="400" 
+                      height="300"
+                      onError={(e) => {
+                        console.error(`Failed to load accommodation image: ${a.img}`);
+                        e.currentTarget.src = '/placeholder.svg';
+                      }}
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     {a.badge && <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">{a.badge}</span>}
                   </div>
