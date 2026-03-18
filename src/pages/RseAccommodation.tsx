@@ -16,6 +16,7 @@ const RseAccommodation = () => {
     t(translations.rse.fac5),
     t(translations.rse.fac6),
     t(translations.rse.fac7),
+    t(translations.rse.fac8),
   ];
 
   return (
