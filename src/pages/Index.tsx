@@ -20,10 +20,6 @@ const B = "https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17
 const heroImage = encodeImageUrl(`${B}.16 (2).webp`);
 const featuredImg = encodeImageUrl(`${B}.16.webp`);
 
-// Debug: Log URLs to console
-console.log('🖼️ Hero Image URL:', heroImage);
-console.log('🖼️ Featured Image URL:', featuredImg);
-
 const CATS_EN = ["All", "Accommodation", "Outdoors", "Amenities"] as const;
 
 const Index = () => {
@@ -31,6 +27,12 @@ const Index = () => {
   const [filter, setFilter] = useState<string>("All");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  // Debug: Log URLs to console on mount
+  useEffect(() => {
+    console.log('🖼️ Hero Image URL:', heroImage);
+    console.log('🖼️ Featured Image URL:', featuredImg);
+  }, []);
 
   const handleImageError = useCallback((src: string) => {
     setImageErrors(prev => new Set(prev).add(src));
