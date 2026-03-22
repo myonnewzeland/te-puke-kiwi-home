@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
@@ -28,9 +27,9 @@ const Footer = () => {
             <h3 className="font-body text-sm font-semibold uppercase tracking-wider mb-3 opacity-70">{t(translations.footer.navigate)}</h3>
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
               {navItems.map((l) => (
-                <Link key={l.to} to={l.to} className="text-sm opacity-80 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1">
+                <a key={l.to} href={l.to} className="text-sm opacity-80 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded-md px-2 py-1">
                   {l.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>

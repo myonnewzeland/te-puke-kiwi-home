@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
 import { Calendar, ExternalLink, MapPin, FileText } from "lucide-react";
 import seasonalImg from "@/assets/seasonal-work.jpg";
 import seasonalImgWebp from "@/assets/seasonal-work.webp";
@@ -83,7 +82,7 @@ const SeasonalWork = () => {
           </div>
 
           <div className="text-center mt-12 opacity-0 animate-scale-in [animation-delay:1100ms]">
-            <Link to="/contact" className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:scale-105 transition-transform">{t(translations.work.bookYourStay)}</Link>
+            <a href="/contact" className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:scale-105 transition-transform">{t(translations.work.bookYourStay)}</a>
           </div>
         </div>
       </section>

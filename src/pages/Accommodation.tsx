@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
 import { AlertTriangle, UtensilsCrossed, Bath, WashingMachine, Wifi, Car, TreePine, MapPin, DollarSign, Users } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -157,7 +156,7 @@ const Accommodation = () => {
                 <li className="flex gap-2 items-start text-foreground/80"><span className="text-primary mt-1">•</span> {t(translations.acc.rseBullet3)}</li>
               </ul>
               <p className="text-sm text-foreground/70 italic">
-                {t(translations.acc.rseNote)} <Link to="/rse-accommodation" className="text-primary hover:underline font-medium">{t(translations.acc.rsePageLink)}</Link> {t(translations.acc.rseNoteEnd)}
+                {t(translations.acc.rseNote)} <a href="/rse-accommodation" className="text-primary hover:underline font-medium">{t(translations.acc.rsePageLink)}</a> {t(translations.acc.rseNoteEnd)}
               </p>
             </div>
             <div className="bg-card p-8 md:p-10 rounded-3xl border border-border shadow-lg opacity-0 animate-fade-in-up hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: "900ms" }}>
@@ -180,7 +179,7 @@ const Accommodation = () => {
               <span className="bg-background px-4 py-2 rounded-full text-sm font-medium border border-border/50 shadow-sm">{t(translations.acc.groupArr)}</span>
             </div>
             <p className="text-foreground mb-8 text-lg">{t(translations.acc.pricesCta)} <a href="tel:02108917258" className="text-primary font-bold hover:underline">021 0891 7258</a> {t(translations.acc.pricesCtaEnd)}</p>
-            <Link to="/contact" className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-md">{t(translations.acc.bookYourStay)}</Link>
+            <a href="/contact" className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-md">{t(translations.acc.bookYourStay)}</a>
           </div>
 
           <div className="max-w-4xl mx-auto">

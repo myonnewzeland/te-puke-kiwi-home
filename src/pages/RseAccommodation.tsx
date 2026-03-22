@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
 import { CheckCircle, Gift } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
@@ -57,7 +56,7 @@ const RseAccommodation = () => {
 
           <div className="text-center opacity-0 animate-scale-in [animation-delay:1400ms]">
             <h3 className="font-heading text-lg font-bold text-foreground mb-4">{t(translations.rse.bookTitle)}</h3>
-            <Link to="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg hover:scale-105 transition-transform">{t(translations.rse.bookCta)}</Link>
+            <a href="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg hover:scale-105 transition-transform">{t(translations.rse.bookCta)}</a>
           </div>
         </div>
       </section>

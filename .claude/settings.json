@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun x:*)",
+      "Bash(bun run:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun add:*)",
+      "Bash(bun install:*)",
+      "Bash(bun update:*)",
+      "Bash(curl -fsSL https://vite.plus)",
+      "Bash(bash)",
+      "Bash(source ~/.zshrc)",
+      "Bash(vp help:*)",
+      "Bash(done)",
+      "Bash(npm run:*)",
+      "Bash(pkill -f \"vite\")",
+      "mcp__playwright__browser_close"
+    ]
+  }
+}

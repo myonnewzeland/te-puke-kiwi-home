@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Home, Briefcase, Users, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -168,9 +167,9 @@ const Index = () => {
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 font-body opacity-0 animate-fade-in-up [animation-delay:200ms]">
             {t(translations.home.heroDesc)}
           </p>
-          <Link to="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg opacity-0 animate-scale-in [animation-delay:400ms] hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+          <a href="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg opacity-0 animate-scale-in [animation-delay:400ms] hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
             {t(translations.home.bookYourStay)}
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -179,13 +178,13 @@ const Index = () => {
         <div className="container-narrow">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {cards.map((card, i) => (
-              <Link key={card.to} to={card.to} className="group bg-card rounded-lg p-8 text-center border border-border opacity-0 animate-fade-in-up hover:shadow-[var(--shadow-elevated)] hover:scale-[1.03] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" style={{ animationDelay: `${i * 150}ms` }}>
+              <a key={card.to} href={card.to} className="group bg-card rounded-lg p-8 text-center border border-border opacity-0 animate-fade-in-up hover:shadow-[var(--shadow-elevated)] hover:scale-[1.03] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" style={{ animationDelay: `${i * 150}ms` }}>
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent text-accent-foreground mb-4 group-hover:scale-110 transition-transform duration-300">
                   <card.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h2 className="font-heading text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">{card.title}</h2>
                 <p className="text-muted-foreground text-sm">{card.desc}</p>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -274,9 +273,9 @@ const Index = () => {
                 <p className="text-primary-foreground/80 text-lg">{t(translations.home.ctaDesc)}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-                <Link to="/contact" className="inline-block bg-secondary text-secondary-foreground font-bold px-10 py-4 rounded-xl text-lg shadow-lg hover:scale-105 hover:bg-secondary/90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 text-center">
+                <a href="/contact" className="inline-block bg-secondary text-secondary-foreground font-bold px-10 py-4 rounded-xl text-lg shadow-lg hover:scale-105 hover:bg-secondary/90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 text-center">
                   {t(translations.home.getInTouch)}
-                </Link>
+                </a>
                 <a href="tel:02108917258" className="inline-block bg-white/10 border border-white/30 text-primary-foreground font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/20 transition-all duration-200 text-center">
                   📞 021 089 17258
                 </a>
