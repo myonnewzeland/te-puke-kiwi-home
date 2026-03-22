@@ -176,13 +176,13 @@ const Index = () => {
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden="true" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight opacity-0 animate-fade-in-up">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight animate-fade-in-up">
             {t(translations.home.heroTitle)}
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 font-body opacity-0 animate-fade-in-up [animation-delay:200ms]">
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 font-body animate-fade-in-up [animation-delay:200ms]">
             {t(translations.home.heroDesc)}
           </p>
-          <a href="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg opacity-0 animate-scale-in [animation-delay:400ms] hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+          <a href="/contact" className="inline-block bg-secondary text-secondary-foreground font-semibold px-8 py-3.5 rounded-lg text-lg shadow-lg animate-scale-in [animation-delay:400ms] hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
             {t(translations.home.bookYourStay)}
           </a>
         </div>
