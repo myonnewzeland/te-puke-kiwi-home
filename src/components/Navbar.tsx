@@ -60,11 +60,11 @@ const Navbar = () => {
         <div className="flex items-center gap-2 md:hidden">
           {/* Mobile language switcher */}
           <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
+            onClick={() => setLang(lang === "en" ? "es" : lang === "es" ? "ja" : "en")}
             className="p-2 text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md border border-border text-sm font-medium"
-            aria-label={lang === "en" ? "Cambiar a español" : "Switch to English"}
+            aria-label={lang === "en" ? "Cambiar a español" : lang === "es" ? "日本語に切り替え" : "Switch to English"}
           >
-            {lang === "en" ? "ES" : "EN"}
+            {lang === "en" ? "ES" : lang === "es" ? "JA" : "EN"}
           </button>
           <button
             onClick={() => setOpen(!open)}
