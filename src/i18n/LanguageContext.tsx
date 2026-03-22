@@ -7,12 +7,14 @@ type LanguageContextType = {
   t: (obj: Record<Lang, string>) => string;
 };
 
+const LANGS: Lang[] = ["en", "es", "ja"];
+
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Lang>(() => {
     const saved = localStorage.getItem("lang");
-    return (saved === "es" || saved === "en") ? saved : "en";
+    return (saved === "es" || saved === "en" || saved === "ja") ? saved : "en";
   });
 
   const setLang = useCallback((l: Lang) => {
