@@ -33,6 +33,9 @@ function asyncCssPlugin() {
     name: "async-css",
     apply: "build" as const,
     transformIndexHtml(html: string) {
+      // Convert render-blocking stylesheet to async (print-swap trick).
+      // Critical above-the-fold CSS is already inlined in <head> so the
+      // page renders correctly before the full Tailwind stylesheet loads.
       return html.replace(
         /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
         (_, href) =>
