@@ -1,0 +1,62 @@
+# ============================================================
+# Cache-Control Headers — Te Puke Holiday Park
+# ============================================================
+# Served by Cloudflare / Netlify / any static host that reads _headers.
+# The goal is maximum cache reuse while still serving fresh content.
+# ============================================================
+
+# Hashed JS/CSS assets (content-hash in filename → safe to cache forever)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Hashed font assets
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages — short TTL so content updates propagate within 5 minutes
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+/accommodation
+  Cache-Control: public, max-age=300, must-revalidate
+
+/seasonal-work
+  Cache-Control: public, max-age=300, must-revalidate
+
+/rse-accommodation
+  Cache-Control: public, max-age=300, must-revalidate
+
+/contact
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Sitemap / robots — refresh daily
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# Web manifest — cache for a week
+/site.webmanifest
+  Cache-Control: public, max-age=604800
+
+# Images in public/ — 30 days
+/og-image.jpg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.svg
+  Cache-Control: public, max-age=2592000, immutable
+
+# Optimized local images — 1 year immutable
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Security headers (apply globally)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)

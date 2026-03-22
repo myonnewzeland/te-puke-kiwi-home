@@ -5,17 +5,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 
-// Helper function to properly encode image URLs
-const encodeImageUrl = (url: string) => {
-  // Only encode if not already encoded
-  if (url.includes('%20') || url.includes('%28') || url.includes('%29')) {
-    return url; // Already encoded
-  }
-  return url.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
-};
-
-const IMG_BASE = "https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17";
-const heroImg = encodeImageUrl(`${IMG_BASE}.15 (1).webp`);
+const IMG = "/images";
+const heroImg = `${IMG}/te-puke-hostel-caravan-interior.webp`;
 
 const Accommodation = () => {
   const facilitiesRef = useScrollReveal<HTMLUListElement>();
@@ -24,18 +15,18 @@ const Accommodation = () => {
 
   const accommodations = [
     {
-      img: encodeImageUrl("https://im.tepukeholidaypark.co.nz/pods.webp"),
+      img: `${IMG}/te-puke-hostel-premium-pods-accommodation.webp`,
       name: t(translations.acc.pods),
       badge: t(translations.acc.mostPopular),
       desc: t(translations.acc.podsDesc),
     },
     {
-      img: encodeImageUrl("https://im.tepukeholidaypark.co.nz/WhatsApp Image 2026-03-13 at 16.17.15 (1).webp"),
+      img: `${IMG}/te-puke-hostel-caravan-interior.webp`,
       name: t(translations.acc.caravans),
       desc: t(translations.acc.caravansDesc),
     },
     {
-      img: encodeImageUrl(`${IMG_BASE}.16 (1).webp`),
+      img: `${IMG}/te-puke-hostel-cabin-accommodation.webp`,
       name: t(translations.acc.cabins),
       desc: t(translations.acc.cabinsDesc),
     },
@@ -68,15 +59,18 @@ const Accommodation = () => {
       </Helmet>
 
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden" aria-labelledby="accommodation-heading">
-        <picture className="absolute inset-0 w-full h-full">
+          <picture className="absolute inset-0 w-full h-full">
           <img 
-            src={heroImg} 
+            src="/images/te-puke-hostel-caravan-interior-800w.webp"
+            srcSet="/images/te-puke-hostel-caravan-interior-800w.webp 800w, /images/te-puke-hostel-caravan-interior.webp 1200w"
+            sizes="100vw"
             alt="Beautiful view at Te Puke Holiday Park" 
             className="absolute inset-0 w-full h-full object-cover" 
             loading="eager" 
             fetchPriority="high"
+            width="800"
+            height="1067"
             onError={(e) => {
-              console.error(`Failed to load hero image: ${heroImg}`);
               e.currentTarget.src = '/placeholder.svg';
             }}
           />
@@ -92,6 +86,11 @@ const Accommodation = () => {
         <div className="container-narrow">
           <p className="text-lg text-foreground/80 mb-10 max-w-3xl opacity-0 animate-fade-in-up [animation-delay:300ms] mx-auto text-center">{t(translations.acc.introText)}</p>
 
+          {/* SEO paragraph — visible text for "hostel te puke" keyword */}
+          <p className="text-base text-foreground/70 mb-10 max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up [animation-delay:350ms]">
+            Looking for a hostel in Te Puke? Te Puke Holiday Park offers the best hostel-style accommodation in the area — close to kiwifruit orchards, packhouses, and Bay of Plenty attractions.
+          </p>
+
           <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-12 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]" role="alert">
             <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
             <p className="text-sm text-foreground"><strong>{t(translations.acc.pleaseNote)}</strong> {t(translations.acc.notice)}</p>
@@ -104,17 +103,18 @@ const Accommodation = () => {
               {accommodations.map((a, i) => (
                  <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
                   <div className="relative overflow-hidden shrink-0 h-64">
-                    <img 
-                      src={a.img} 
-                      alt={`${a.name} - Te Puke Holiday Park`} 
-                      loading="lazy" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
-                      width="400" 
-                      height="300"
-                      onError={(e) => {
-                        console.error(`Failed to load accommodation image: ${a.img}`);
-                        e.currentTarget.src = '/placeholder.svg';
-                      }}
+                     <img 
+                       src={a.img.replace('.webp', '-800w.webp')}
+                       srcSet={`${a.img.replace('.webp', '-800w.webp')} 800w, ${a.img} 1200w`}
+                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                       alt={`${a.name} - Te Puke Holiday Park`} 
+                       loading="lazy" 
+                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
+                       width="800" 
+                       height="600"
+                     onError={(e) => {
+                         e.currentTarget.src = '/placeholder.svg';
+                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     {a.badge && <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">{a.badge}</span>}

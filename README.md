@@ -94,5 +94,4 @@ src/
 
 - No backend — the contact form currently does not submit data anywhere.
 - No environment variables are required. All configuration (phone, address, analytics IDs) is hardcoded.
-- `lovable-tagger` dev plugin is included from the original Lovable.dev scaffolding; it is only active in development mode and can be safely removed.
 - `next-themes`, `recharts`, `embla-carousel`, and many shadcn/ui components are installed but not actively used in the current pages.

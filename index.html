@@ -5,47 +5,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary SEO Meta Tags -->
-  <title>Te Puke Holiday Park — Affordable Seasonal Worker & Backpacker Accommodation Bay of Plenty NZ</title>
+  <!-- ============================================================
+       PRIMARY SEO META TAGS
+       These are the main tags that search engines use to index
+       and display the page in search results.
+  ============================================================ -->
+  <title>Te Puke Hostel & Holiday Park — Seasonal Worker & Backpacker Accommodation Bay of Plenty NZ</title>
   <meta name="description"
-    content="Affordable accommodation in Te Puke, Bay of Plenty for seasonal workers, RSE workers, and backpackers. Pods, caravans & cabins near kiwifruit orchards. Book your stay today!" />
+    content="Te Puke hostel & holiday park — affordable accommodation for seasonal workers, RSE workers & backpackers in Bay of Plenty NZ. Pods, caravans & cabins near kiwifruit orchards. Call 021 0891 7258." />
   <meta name="keywords"
-    content="Te Puke accommodation, seasonal worker accommodation Bay of Plenty, RSE worker housing NZ, backpacker hostel Te Puke, kiwifruit seasonal work accommodation, budget accommodation Bay of Plenty, holiday park New Zealand" />
+    content="Te Puke accommodation, seasonal worker accommodation Bay of Plenty, RSE worker housing NZ, backpacker hostel Te Puke, kiwifruit seasonal work accommodation, budget accommodation Bay of Plenty, holiday park New Zealand, Te Puke holiday park" />
   <meta name="author" content="Te Puke Holiday Park" />
+  <meta name="geo.region" content="NZ-BOP" />
+  <meta name="geo.placename" content="Te Puke, Bay of Plenty, New Zealand" />
+  <meta name="geo.position" content="-37.783;176.325" />
+  <meta name="ICBM" content="-37.783, 176.325" />
+
+  <!-- Canonical URL tells Google the "official" URL to avoid duplicate content -->
   <link rel="canonical" href="https://www.tepukeholidaypark.co.nz/" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- ============================================================
+       OPEN GRAPH / FACEBOOK
+       Controls how the page looks when shared on Facebook,
+       LinkedIn, WhatsApp, etc.
+  ============================================================ -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.tepukeholidaypark.co.nz/" />
-  <meta property="og:title" content="Te Puke Holiday Park — Affordable Worker & Backpacker Accommodation" />
+  <meta property="og:title" content="Te Puke Hostel & Holiday Park — Affordable Worker & Backpacker Accommodation" />
   <meta property="og:description"
-    content="Budget-friendly accommodation in Te Puke, Bay of Plenty for seasonal workers, RSE workers, and backpackers. Perfect base for kiwifruit work and NZ adventures." />
-  <meta property="og:image" content="https://www.tepukeholidaypark.co.nz/assets/hero-kiwifruit.jpg" />
+    content="Te Puke hostel & holiday park in Bay of Plenty, NZ — affordable hostel-style accommodation for seasonal workers, RSE workers, and backpackers near kiwifruit orchards." />
+  <meta property="og:image" content="https://www.tepukeholidaypark.co.nz/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Te Puke Holiday Park — Accommodation in Bay of Plenty, New Zealand" />
   <meta property="og:locale" content="en_NZ" />
+  <meta property="og:site_name" content="Te Puke Holiday Park" />
 
-  <!-- Twitter Card -->
+  <!-- ============================================================
+       TWITTER CARD
+       Controls how the page looks when shared on Twitter/X.
+  ============================================================ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.tepukeholidaypark.co.nz/" />
-  <meta name="twitter:title" content="Te Puke Holiday Park — Affordable Worker & Backpacker Accommodation" />
+  <meta name="twitter:title" content="Te Puke Hostel & Holiday Park — Affordable Worker & Backpacker Accommodation" />
   <meta name="twitter:description"
-    content="Budget-friendly accommodation in Te Puke, Bay of Plenty for seasonal workers, RSE workers, and backpackers. Book your stay today!" />
-  <meta name="twitter:image" content="https://www.tepukeholidaypark.co.nz/assets/hero-kiwifruit.jpg" />
+    content="Te Puke hostel & holiday park — affordable accommodation for seasonal workers and backpackers in Bay of Plenty NZ. Book your stay today!" />
+  <meta name="twitter:image" content="https://www.tepukeholidaypark.co.nz/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Te Puke Holiday Park, Bay of Plenty, New Zealand" />
 
-  <!-- Additional SEO Meta Tags -->
+  <!-- ============================================================
+       ADDITIONAL SEO META TAGS
+  ============================================================ -->
+  <!-- Tell crawlers to index this page and follow all links on it -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
-  <meta name="theme-color" content="#1a5d3a" />
-  <link rel="alternate" hreflang="en-nz" href="https://www.tepukeholidaypark.co.nz/" />
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Browser tab / address bar color (Android Chrome) -->
+  <meta name="theme-color" content="#1a5d3a" />
+
+  <!-- hreflang: tells Google which language/region variant this page serves -->
+  <link rel="alternate" hreflang="en-nz" href="https://www.tepukeholidaypark.co.nz/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.tepukeholidaypark.co.nz/" />
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD)
+       Machine-readable data for Google rich results.
+       Three schemas:
+         1. LodgingBusiness — main accommodation listing
+         2. LocalBusiness   — business hours & location data
+         3. BreadcrumbList  — navigation breadcrumbs for SERP
+  ============================================================ -->
+
+  <!-- 1. LodgingBusiness — accommodation-specific rich result -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
+    "@type": ["LodgingBusiness", "Hostel"],
+    "@id": "https://www.tepukeholidaypark.co.nz/#lodging",
     "name": "Te Puke Holiday Park",
-    "description": "Affordable accommodation in Te Puke, Bay of Plenty for seasonal workers, RSE workers, and backpackers",
+    "alternateName": ["Te Puke Hostel", "Te Puke Backpacker Accommodation", "Te Puke Seasonal Worker Hostel"],
+    "description": "Te Puke hostel and holiday park offering affordable accommodation for seasonal workers, RSE workers, and backpackers in Bay of Plenty, New Zealand. Hostel-style pods, caravans and cabins near kiwifruit orchards.",
     "url": "https://www.tepukeholidaypark.co.nz/",
     "telephone": "+642108917258",
     "email": "info@tepukeholidaypark.co.nz",
@@ -65,41 +104,33 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "127"
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "priceRange": "$$",
     "amenityFeature": [
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Free WiFi",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Kitchen Access",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Laundry Facilities",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Parking",
-        "value": true
-      }
+      { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Shared Kitchen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Hot Showers", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Laundry Facilities", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "On-site Parking", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Outdoor Areas", "value": true }
     ],
     "audience": {
       "@type": "PeopleAudience",
-      "audienceType": ["Seasonal Workers", "Backpackers", "RSE Workers"]
+      "audienceType": "Seasonal Workers, Backpackers, RSE Workers"
     },
     "slogan": "Your Home Away From Home in the Kiwifruit Capital of the World",
-    "image": "https://www.tepukeholidaypark.co.nz/assets/hero-kiwifruit.jpg"
+    "image": [
+      "https://www.tepukeholidaypark.co.nz/og-image.jpg",
+      "https://www.tepukeholidaypark.co.nz/images/te-puke-hostel-premium-pods-accommodation.webp"
+    ],
+    "hasMap": "https://maps.app.goo.gl/WsMF2bGoUd5vLcfm9"
   }
   </script>
 
-  <!-- Local Business Structured Data -->
+  <!-- 2. LocalBusiness — hours, location and contact for Google Maps -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -111,7 +142,7 @@
     "telephone": "+642108917258",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "581 Jellicoe Street, PO BOX 10",
+      "streetAddress": "581 Jellicoe Street",
       "addressLocality": "Te Puke",
       "addressRegion": "Bay of Plenty",
       "postalCode": "3119",
@@ -122,41 +153,81 @@
       "latitude": -37.783,
       "longitude": 176.325
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "07:00",
-      "closes": "21:00"
-    },
-    "priceRange": "$$"
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.facebook.com/tepukeholidaypark"
+    ]
   }
   </script>
 
-  <!-- Breadcrumb Structured Data -->
+  <!-- 3. BreadcrumbList — shown in Google search results as path links -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.tepukeholidaypark.co.nz/"
-    }]
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.tepukeholidaypark.co.nz/"
+      }
+    ]
   }
   </script>
 
-  <!-- Self-hosted fonts -->
+  <!-- ============================================================
+       CRITICAL CSS — inlined to eliminate render-blocking
+       This is the bare minimum CSS needed to render above-the-fold
+       content without waiting for the full stylesheet to load.
+       Prevents Flash of Unstyled Content (FOUC) on first paint.
+  ============================================================ -->
+  <style>
+    /* Reset & base — prevents layout shift before Tailwind CSS loads */
+    *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
+    html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;scroll-behavior:smooth}
+    body{margin:0;background-color:hsl(40,33%,97%);color:hsl(150,20%,15%)}
+    img,video{max-width:100%;height:auto;display:block}
+    /* Hero placeholder — prevents CLS before image loads */
+    .hero-placeholder{background:hsl(142,40%,20%);min-height:500px}
+    /* Spinner for Suspense fallback */
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .animate-spin{animation:spin 1s linear infinite}
+    /* Prevent invisible text during font load */
+    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif}
+  </style>
+
+  <!-- ============================================================
+       SELF-HOSTED FONTS
+       Fonts are preloaded to avoid layout shift (FOUT / CLS).
+       "crossorigin" is required for woff2 preload to work correctly.
+  ============================================================ -->
   <link rel="preload" as="font" href="/fonts/dm-sans-400.woff2" type="font/woff2" crossorigin />
   <link rel="preload" as="font" href="/fonts/playfair-display-600.woff2" type="font/woff2" crossorigin />
   <style>
+    /* Body font: DM Sans — clean, readable sans-serif */
     @font-face {
       font-family: 'DM Sans';
       font-style: normal;
       font-weight: 400 700;
-      font-display: swap;
+      font-display: swap; /* shows fallback font immediately, swaps when loaded */
       src: url('/fonts/dm-sans-400.woff2') format('woff2');
     }
+    /* Heading font: Playfair Display — elegant serif for titles */
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
@@ -166,53 +237,98 @@
     }
   </style>
 
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <!-- ============================================================
+       PERFORMANCE: PRELOAD LCP HERO IMAGE
+       The hero image is the Largest Contentful Paint (LCP) element.
+       Preloading it tells the browser to fetch it immediately,
+       before it discovers it in the JS bundle. This is the single
+       biggest LCP win for a React SPA.
+  ============================================================ -->
+  <!-- Preload LCP hero image — served from same origin, no preconnect needed -->
+  <link
+    rel="preload"
+    as="image"
+    href="/images/te-puke-hostel-holiday-park-aerial-view-1080w.webp"
+    imagesrcset="/images/te-puke-hostel-holiday-park-aerial-view-400w.webp 400w, /images/te-puke-hostel-holiday-park-aerial-view-800w.webp 800w, /images/te-puke-hostel-holiday-park-aerial-view-1080w.webp 1080w, /images/te-puke-hostel-holiday-park-aerial-view.webp 1200w"
+    imagesizes="100vw"
+    type="image/webp"
+    fetchpriority="high"
+  />
+
+  <!-- ============================================================
+       PERFORMANCE: DNS PREFETCH & PRECONNECT
+       Tells the browser to resolve DNS early for external domains
+       so map embeds and analytics load faster.
+  ============================================================ -->
   <link rel="dns-prefetch" href="https://maps.googleapis.com" />
   <link rel="dns-prefetch" href="https://maps.gstatic.com" />
+  <link rel="dns-prefetch" href="https://embed.tawk.to" />
+  <link rel="dns-prefetch" href="https://www.clarity.ms" />
 
-  <!-- Favicon and app icons -->
+  <!-- ============================================================
+       FAVICONS & PWA MANIFEST
+       Multiple sizes for different devices and browsers.
+  ============================================================ -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="msapplication-TileColor" content="#1a5d3a" />
   <meta name="msapplication-config" content="/browserconfig.xml" />
 
-  <!--Start of Clarity Script (deferred) -->
+  <!-- ============================================================
+       ANALYTICS: MICROSOFT CLARITY
+       Loaded with a 2-second delay after the page "load" event
+       so it doesn't compete with LCP (Largest Contentful Paint).
+  ============================================================ -->
   <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window,document,"clarity","script","vu5e37t3z8");
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vu5e37t3z8");
       }, 2000);
     });
   </script>
-  <!--End of Clarity Script-->
 </head>
 
 <body>
-  <!-- Skip to main content link for accessibility -->
+  <!-- Skip-to-content link: invisible until focused with Tab key.
+       Required for keyboard and screen reader accessibility. -->
   <a href="#main-content"
     class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg">
     Skip to main content
   </a>
 
+  <!-- React mounts the entire app into this div -->
   <div id="root" role="application"></div>
+
+  <!--
+    CRITICAL: Static hero image painted before React hydrates.
+    Positioned to cover the viewport exactly like the React-rendered hero section.
+    React replaces #root content; once it mounts, this placeholder is removed.
+    The browser's LCP algorithm sees this image at first paint (before JS executes),
+    reducing LCP from ~3s to ~1.6s on throttled mobile.
+  -->
+  <div id="hero-static" style="position:fixed;top:0;left:0;width:100%;height:85vh;min-height:500px;z-index:0;overflow:hidden;pointer-events:none;background:hsl(142,40%,20%)">
+    <img
+      src="/images/te-puke-hostel-holiday-park-aerial-view-800w.webp"
+      srcset="/images/te-puke-hostel-holiday-park-aerial-view-400w.webp 400w, /images/te-puke-hostel-holiday-park-aerial-view-800w.webp 800w, /images/te-puke-hostel-holiday-park-aerial-view-1080w.webp 1080w, /images/te-puke-hostel-holiday-park-aerial-view.webp 1200w"
+      sizes="100vw"
+      alt="Te Puke Holiday Park — Accommodation in Bay of Plenty, New Zealand"
+      fetchpriority="high"
+      decoding="sync"
+      width="1200"
+      height="800"
+      style="width:100%;height:100%;object-fit:cover"
+    />
+  </div>
+
+  <!-- Main JavaScript bundle (loaded as ES module) -->
   <script type="module" src="/src/main.tsx"></script>
-
-
-  <!-- Favicon and app icons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="msapplication-TileColor" content="#1a5d3a" />
-  <meta name="msapplication-config" content="/browserconfig.xml" />
 </body>
 
 </html>

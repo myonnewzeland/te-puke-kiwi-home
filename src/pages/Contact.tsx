@@ -28,7 +28,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 opacity-0 animate-fade-in-up [animation-delay:300ms]">
             <div className="space-y-8">
               <div className="bg-accent rounded-xl p-6 md:p-8 border border-border shadow-sm">
-                <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-6">{t(translations.contact.getInTouch)}</h2>
+                <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-6" id="contact-details-heading">{t(translations.contact.getInTouch)}</h2>
                 <div className="space-y-4">
                   <a href={GOOGLE_MAPS_LINK} target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary">
                     <div className="bg-primary/10 p-3 rounded-lg shrink-0 group-hover:bg-primary/20 transition-colors">

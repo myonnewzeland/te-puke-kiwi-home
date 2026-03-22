@@ -82,8 +82,8 @@ const Navbar = () => {
               className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2.5 py-1.5 border border-border hover:border-primary/50 bg-background"
               aria-expanded={langOpen}
               aria-haspopup="listbox"
-              aria-label="Select language"
             >
+              <span className="sr-only">Select language:</span>
               <span className="text-base leading-none">{currentLang.flag}</span>
               <span className="font-semibold tracking-wide">{currentLang.code.toUpperCase()}</span>
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} aria-hidden="true" />
@@ -123,8 +123,8 @@ const Navbar = () => {
               onClick={() => setLangOpen((v) => !v)}
               className="flex items-center gap-1 p-2 text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md border border-border text-sm font-semibold bg-background"
               aria-expanded={langOpen}
-              aria-label="Select language"
             >
+              <span className="sr-only">Select language:</span>
               <span className="text-base leading-none">{currentLang.flag}</span>
               <span>{currentLang.code.toUpperCase()}</span>
             </button>
