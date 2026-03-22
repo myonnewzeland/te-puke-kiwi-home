@@ -47,12 +47,12 @@ const Navbar = () => {
 
           {/* Language switcher */}
           <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
+            onClick={() => setLang(lang === "en" ? "es" : lang === "es" ? "ja" : "en")}
             className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1 border border-border"
-            aria-label={lang === "en" ? "Cambiar a español" : "Switch to English"}
+            aria-label={lang === "en" ? "Cambiar a español" : lang === "es" ? "日本語に切り替え" : "Switch to English"}
           >
             <Globe className="h-4 w-4" aria-hidden="true" />
-            <span>{lang === "en" ? "ES" : "EN"}</span>
+            <span>{lang === "en" ? "ES" : lang === "es" ? "JA" : "EN"}</span>
           </button>
         </nav>
 
