@@ -219,7 +219,7 @@ export const translations = {
     photo5_gardenPath: { en: "Garden Walkway Between Units", es: "Sendero del Jardín Entre Unidades", de: "Gartenweg zwischen den Einheiten", ja: "ユニット間の庭園通路" },
     photo6_poolArea: { en: "Swimming Pool (Summer Only)", es: "Piscina (Solo Verano)", de: "Schwimmbad (nur Sommer)", ja: "プール（夏季限定）" },
     photo7_laundryRoom: { en: "Laundry Room — Washers & Dryers", es: "Lavandería — Lavadoras y Secadoras", de: "Wäscherei — Wasch- und Trockenmaschinen", ja: "ランドリールーム — 洗濯機と乾燥機" },
-    photo8_aerialView: { en: "Aerial View of the Park", es: "Vista Aérea del Parque", de: "Luftaufnahme des Parks", ja: "パークの航空写真" },
+    photo8_aerialView: { en: "Wide View of the Park", es: "Vista Amplia del Parque", de: "Weiter Blick über den Park", ja: "パークの広い眺め" },
     photo9_morningRoutine: { en: "Morning at the Park", es: "Mañana en el Parque", de: "Morgen im Park", ja: "パークの朝" },
     photo10_commonArea: { en: "Common Area — Tables & Seating", es: "Área Común — Mesas y Asientos", de: "Gemeinschaftsbereich — Tische & Sitzplätze", ja: "共用エリア — テーブルと座席" },
     photo11_caravanRow: { en: "Row of Caravans — Long-Stay Housing", es: "Fila de Caravanas — Vivienda de Larga Estadía", de: "Wohnwagenreihe — Langzeitunterkunft", ja: "キャラバン列 — 長期滞在住宅" },

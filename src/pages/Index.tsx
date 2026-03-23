@@ -6,7 +6,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 
 const IMG = "/images";
-const heroImage = `${IMG}/te-puke-hostel-holiday-park-aerial-view.webp`;
+const heroImage = `${IMG}/te-puke-hostel-park-cabins-caravans.webp`;
 const featuredImg = `${IMG}/te-puke-hostel-holiday-park-grounds.webp`;
 
 /** Images that have an 800w responsive variant in /public/images/ */
@@ -72,7 +72,7 @@ const Index = () => {
     { src: `${IMG}/te-puke-hostel-outdoor-relaxation-area.webp`, label: t(translations.gallery.relaxOutdoor), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-evening-atmosphere.webp`, label: t(translations.gallery.eveningAtmosphere), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-park-surroundings.webp`, label: t(translations.gallery.surroundings), cat: "Outdoors" },
-    { src: `${IMG}/te-puke-hostel-holiday-park-aerial-view.webp`, label: t(translations.gallery.greenViews), cat: "Outdoors" },
+    { src: `${IMG}/te-puke-hostel-park-cabins-caravans.webp`, label: t(translations.gallery.greenViews), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-shared-bathroom-facilities.webp`, label: t(translations.gallery.sharedFacilities), cat: "Amenities" },
     { src: `${IMG}/te-puke-hostel-shared-kitchen.webp`, label: t(translations.gallery.sharedKitchen), cat: "Amenities" },
     { src: `${IMG}/te-puke-hostel-recreation-area.webp`, label: t(translations.gallery.recreation), cat: "Amenities" },
@@ -85,13 +85,13 @@ const Index = () => {
     { src: `${IMG}/te-puke-hostel-garden-path.webp`, label: t(translations.gallery.photo5_gardenPath), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-pool-area.webp`, label: t(translations.gallery.photo6_poolArea), cat: "Amenities" },
     { src: `${IMG}/te-puke-hostel-laundry-room.webp`, label: t(translations.gallery.photo7_laundryRoom), cat: "Amenities" },
-    { src: `${IMG}/te-puke-holiday-park-aerial-view.webp`, label: t(translations.gallery.photo8_aerialView), cat: "Outdoors" },
+    { src: `${IMG}/te-puke-holiday-park-wide-view.webp`, label: t(translations.gallery.photo8_aerialView), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-morning-grounds.webp`, label: t(translations.gallery.photo9_morningRoutine), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-common-area.webp`, label: t(translations.gallery.photo10_commonArea), cat: "Amenities" },
     { src: `${IMG}/te-puke-hostel-caravan-row.webp`, label: t(translations.gallery.photo11_caravanRow), cat: "Accommodation" },
     { src: `${IMG}/te-puke-hostel-tree-canopy-outdoors.webp`, label: t(translations.gallery.photo12_treeCanopy), cat: "Outdoors" },
     { src: `${IMG}/te-puke-hostel-dining-area.webp`, label: t(translations.gallery.photo13_diningArea), cat: "Amenities" },
-    { src: `${IMG}/te-puke-hostel-reception-desk.webp`, label: t(translations.gallery.photo14_receptionDesk), cat: "Amenities" },
+    { src: `${IMG}/te-puke-hostel-reception-building.webp`, label: t(translations.gallery.photo14_receptionDesk), cat: "Amenities" },
     { src: `${IMG}/te-puke-hostel-night-lights.webp`, label: t(translations.gallery.photo15_nightLights), cat: "Outdoors" },
 
     // Premium Pods
@@ -160,7 +160,7 @@ const Index = () => {
       <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden" aria-label="Hero">
         <img 
           src={heroImage}
-          srcSet="/images/te-puke-hostel-holiday-park-aerial-view-400w.webp 400w, /images/te-puke-hostel-holiday-park-aerial-view-800w.webp 800w, /images/te-puke-hostel-holiday-park-aerial-view-1080w.webp 1080w, /images/te-puke-hostel-holiday-park-aerial-view.webp 1200w"
+          srcSet="/images/te-puke-hostel-park-cabins-caravans-400w.webp 400w, /images/te-puke-hostel-park-cabins-caravans-800w.webp 800w, /images/te-puke-hostel-park-cabins-caravans-1080w.webp 1080w, /images/te-puke-hostel-park-cabins-caravans.webp 1200w"
           sizes="100vw"
           alt="Te Puke Holiday Park — Accommodation in Bay of Plenty, New Zealand" 
           className="absolute inset-0 w-full h-full object-cover" 
