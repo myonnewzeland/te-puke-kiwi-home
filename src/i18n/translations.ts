@@ -195,69 +195,31 @@ export const translations = {
     getDirectionsBtn: { en: "Get Directions", es: "Cómo Llegar", de: "Wegbeschreibung", ja: "道順を見る" },
   },
 
-  // ── Gallery photo labels ──
+  // ── Gallery photo labels (deduplicated set in Index.tsx) ──
   gallery: {
-    // Original WhatsApp photos (13/03)
     tvLounge: { en: "TV Lounge — Community Gathering Space", es: "Sala de TV — Espacio Comunitario", de: "TV-Lounge — Gemeinschaftsraum", ja: "テレビラウンジ — コミュニティスペース" },
     caravansGroups: { en: "Caravans — Group Accommodation", es: "Caravanas — Alojamiento Grupal", de: "Wohnwagen — Gruppenunterkunft", ja: "キャラバン — グループ宿泊" },
     cabinsSmall: { en: "Cabins — Cozy Small Group Stay", es: "Cabañas — Estadía Acogedora", de: "Hütten — Gemütlicher Aufenthalt", ja: "キャビン — 小グループ向け快適な滞在" },
     caravanInterior: { en: "Caravan Interior — Beds & Storage", es: "Interior de Caravana — Camas y Almacenamiento", de: "Wohnwageninneres — Betten & Stauraum", ja: "キャラバン内装 — ベッドと収納" },
     relaxOutdoor: { en: "Outdoor Seating & BBQ Area", es: "Zona de Asientos y BBQ al Aire Libre", de: "Außensitzbereich & Grillplatz", ja: "屋外シートとBBQエリア" },
     eveningAtmosphere: { en: "Sunset Over the Park", es: "Atardecer Sobre el Parque", de: "Sonnenuntergang über dem Park", ja: "パークに沈む夕日" },
-    surroundings: { en: "Kiwifruit Country Scenery", es: "Paisaje del País del Kiwi", de: "Kiwifrucht-Landschaft", ja: "キウイフルーツの田園風景" },
-    greenViews: { en: "Lush Green Park Views", es: "Vistas Verdes del Parque", de: "Üppige grüne Parkansichten", ja: "パークの緑豊かな景色" },
     sharedFacilities: { en: "Shared Bathrooms & Showers", es: "Baños y Duchas Compartidos", de: "Gemeinschaftsbäder & Duschen", ja: "共用バスルームとシャワー" },
     sharedKitchen: { en: "Fully Equipped Shared Kitchen", es: "Cocina Compartida Equipada", de: "Vollständig ausgestattete Gemeinschaftsküche", ja: "設備の整った共用キッチン" },
-    recreation: { en: "Basketball Court & Recreation", es: "Cancha de Basketball y Recreación", de: "Basketballplatz & Freizeitbereich", ja: "バスケットコートとレクリエーション" },
+    recreation: { en: "Covered Recreation Area", es: "Zona Cubierta de Recreación", de: "Überdachter Freizeitbereich", ja: "屋根付きレクリエーションエリア" },
     parkGrounds: { en: "Park Grounds & Green Spaces", es: "Jardines y Espacios Verdes", de: "Parkgelände & Grünflächen", ja: "パークの庭園と緑地" },
-
-    // Numbered photos (1-15) — descriptive labels
     photo1_parkEntrance: { en: "Park Entrance & Welcome Sign", es: "Entrada y Letrero de Bienvenida", de: "Parkeingang & Willkommensschild", ja: "パーク入口とウェルカムサイン" },
-    photo2_loungeInterior: { en: "Lounge Interior with TV", es: "Interior del Salón con TV", de: "Loungeinneres mit TV", ja: "テレビ付きラウンジ内装" },
     photo3_podExterior: { en: "Pod Exterior — Private Unit", es: "Pod Exterior — Unidad Privada", de: "Pod Außenansicht — Private Einheit", ja: "ポッド外観 — プライベートユニット" },
-    photo4_kitchenFacilities: { en: "Kitchen — Stoves & Prep Area", es: "Cocina — Estufas y Zona de Prep", de: "Küche — Herde & Zubereitungsbereich", ja: "キッチン — コンロと調理エリア" },
-    photo5_gardenPath: { en: "Garden Walkway Between Units", es: "Sendero del Jardín Entre Unidades", de: "Gartenweg zwischen den Einheiten", ja: "ユニット間の庭園通路" },
     photo6_poolArea: { en: "Swimming Pool (Summer Only)", es: "Piscina (Solo Verano)", de: "Schwimmbad (nur Sommer)", ja: "プール（夏季限定）" },
     photo7_laundryRoom: { en: "Laundry Room — Washers & Dryers", es: "Lavandería — Lavadoras y Secadoras", de: "Wäscherei — Wasch- und Trockenmaschinen", ja: "ランドリールーム — 洗濯機と乾燥機" },
-    photo8_aerialView: { en: "Wide View of the Park", es: "Vista Amplia del Parque", de: "Weiter Blick über den Park", ja: "パークの広い眺め" },
-    photo9_morningRoutine: { en: "Morning at the Park", es: "Mañana en el Parque", de: "Morgen im Park", ja: "パークの朝" },
-    photo10_commonArea: { en: "Common Area — Tables & Seating", es: "Área Común — Mesas y Asientos", de: "Gemeinschaftsbereich — Tische & Sitzplätze", ja: "共用エリア — テーブルと座席" },
-    photo11_caravanRow: { en: "Row of Caravans — Long-Stay Housing", es: "Fila de Caravanas — Vivienda de Larga Estadía", de: "Wohnwagenreihe — Langzeitunterkunft", ja: "キャラバン列 — 長期滞在住宅" },
-    photo12_treeCanopy: { en: "Mature Trees & Shaded Areas", es: "Árboles Maduros y Zonas de Sombra", de: "Alte Bäume & Schattenzonen", ja: "成木と日陰のエリア" },
+    photo10_commonArea: { en: "Shared Kitchen — Sinks & Fridges", es: "Cocina Compartida — Fregaderos y Neveras", de: "Gemeinschaftsküche — Spülen & Kühlschränke", ja: "共用キッチン — シンクと冷蔵庫" },
     photo13_diningArea: { en: "Indoor Dining & Social Area", es: "Comedor y Zona Social Interior", de: "Innerer Essbereich & Sozialbereich", ja: "屋内ダイニングと交流エリア" },
-    photo14_receptionDesk: { en: "Reception & Check-in Area", es: "Recepción y Zona de Check-in", de: "Rezeption & Check-in Bereich", ja: "レセプションとチェックインエリア" },
-    photo15_nightLights: { en: "Park at Night — Lit Pathways", es: "Parque de Noche — Senderos Iluminados", de: "Park bei Nacht — Beleuchtete Wege", ja: "夜のパーク — 照明付き通路" },
-
-    // Premium Pods
+    photo14_receptionDesk: { en: "Reception Building & Check-in", es: "Edificio de Recepción y Check-in", de: "Rezeptionsgebäude & Check-in", ja: "レセプションビルとチェックイン" },
     premiumPods: { en: "Premium Pods — Modern Private Units", es: "Premium Pods — Unidades Privadas Modernas", de: "Premium Pods — Moderne private Einheiten", ja: "プレミアムポッド — モダンなプライベートユニット" },
-
-    // Facilities
     ladiesBathroom: { en: "Ladies Bathroom — Clean & Private", es: "Baño de Señoras — Limpio y Privado", de: "Damenbad — Sauber & Privat", ja: "女性用バスルーム — 清潔でプライベート" },
-
-    // WhatsApp photos (18/03) — descriptive labels
     wp1_cabinInterior: { en: "Cabin Interior — Furnished Room", es: "Interior de Cabaña — Habitación Amueblada", de: "Hütteninnenraum — Möbliertes Zimmer", ja: "キャビン内装 — 家具付き部屋" },
-    wp2_parkLawn: { en: "Open Lawn & Picnic Space", es: "Césped Abierto y Zona de Picnic", de: "Offene Rasenfläche & Picknickbereich", ja: "芝生とピクニックスペース" },
-    wp3_podBedSetup: { en: "Pod Bed Setup — Single Occupancy", es: "Cama en Pod — Ocupación Individual", de: "Pod-Bett — Einzelbelegung", ja: "ポッドのベッドセットアップ — シングル" },
-    wp4_bathroomClean: { en: "Clean Shared Bathroom", es: "Baño Compartido Limpio", de: "Sauberes Gemeinschaftsbad", ja: "清潔な共用バスルーム" },
-    wp5_outdoorChairs: { en: "Outdoor Chairs & Relaxation Spot", es: "Sillas al Aire Libre y Zona de Relax", de: "Außenstühle & Entspannungsbereich", ja: "屋外チェアとリラックススポット" },
-    wp6_storageArea: { en: "Storage Shelves & Lockers", es: "Estantes y Casilleros", de: "Lagerregale & Schließfächer", ja: "収納棚とロッカー" },
-    wp7_gardenFlowers: { en: "Garden Flowers & Landscaping", es: "Flores del Jardín y Paisajismo", de: "Gartenblumen & Landschaftsgestaltung", ja: "庭の花と造園" },
-    wp8_walkwayTrees: { en: "Tree-Lined Walkway", es: "Sendero Arbolado", de: "Baumgesäumter Weg", ja: "並木道の遊歩道" },
     wp9_caravanCloseup: { en: "Caravan Close-Up — Entry View", es: "Caravana de Cerca — Vista de Entrada", de: "Wohnwagen Nahaufnahme — Eingangsansicht", ja: "キャラバンクローズアップ — 入口" },
     wp10_sunsetGold: { en: "Golden Sunset Over Te Puke", es: "Atardecer Dorado Sobre Te Puke", de: "Goldener Sonnenuntergang über Te Puke", ja: "テ・プケに沈む黄金の夕日" },
-    wp11_communityDinner: { en: "Community Dinner Gathering", es: "Cena Comunitaria", de: "Gemeinschaftsessen", ja: "コミュニティディナーの集まり" },
-    wp12_workersRelaxing: { en: "Workers Relaxing After Shift", es: "Trabajadores Descansando Después del Turno", de: "Arbeiter nach der Schicht beim Entspannen", ja: "シフト後にくつろぐ労働者たち" },
-    wp13_kitchenUse: { en: "Guests Using the Kitchen", es: "Huéspedes Usando la Cocina", de: "Gäste in der Küche", ja: "キッチンを使用するゲスト" },
-    wp14_quietEvening: { en: "Quiet Evening at the Park", es: "Tarde Tranquila en el Parque", de: "Ruhiger Abend im Park", ja: "パークの静かな夕べ" },
-    wp15_starryNight: { en: "Starry Night Sky Over Park", es: "Cielo Estrellado Sobre el Parque", de: "Sternenhimmel über dem Park", ja: "パーク上空の星空" },
-    wp16_dawnLight: { en: "Dawn Light Through the Trees", es: "Luz del Amanecer Entre Árboles", de: "Morgenlicht durch die Bäume", ja: "木々を通る夜明けの光" },
-    wp17_pathLanterns: { en: "Lantern-Lit Garden Path", es: "Sendero del Jardín con Faroles", de: "Laternenbeleuchter Gartenweg", ja: "ランタンで照らされた庭の小道" },
-    wp18_parkPanorama: { en: "Park Panorama — Full View", es: "Panorámica del Parque — Vista Completa", de: "Park-Panorama — Gesamtansicht", ja: "パークのパノラマ — 全景" },
-    wp19_sunsetSilhouette: { en: "Sunset Silhouette — Palm Trees", es: "Silueta al Atardecer — Palmeras", de: "Sonnenuntergang-Silhouette — Palmen", ja: "夕日のシルエット — ヤシの木" },
-    wp20_twilight: { en: "Twilight Over the Holiday Park", es: "Crepúsculo Sobre el Holiday Park", de: "Dämmerung über dem Holiday Park", ja: "ホリデーパークの黄昏" },
-    wp21_nightCalm: { en: "Calm Night — Park Resting", es: "Noche Tranquila — Parque en Descanso", de: "Ruhige Nacht — Park in Ruhe", ja: "穏やかな夜 — 休息するパーク" },
-    wp22_morningDew: { en: "Morning Dew on the Grounds", es: "Rocío de la Mañana en el Parque", de: "Morgentau auf dem Gelände", ja: "パークの朝露" },
-    wp23_newDay: { en: "New Day at Te Puke Holiday Park", es: "Nuevo Día en Te Puke Holiday Park", de: "Neuer Tag im Te Puke Holiday Park", ja: "Te Puke Holiday Parkの新しい一日" },
+    wp17_pathLanterns: { en: "Lantern-Lit Garden Path", es: "Sendero del Jardín con Faroles", de: "Laternenbeleuchteter Gartenweg", ja: "ランタンで照らされた庭の小道" },
   },
 } as const;
 
