@@ -30,6 +30,16 @@ const Accommodation = () => {
       name: t(translations.acc.cabins),
       desc: t(translations.acc.cabinsDesc),
     },
+    {
+      img: `${IMG}/te-puke-park-grounds-green-spaces.webp`,
+      name: t(translations.acc.camping),
+      desc: t(translations.acc.campingDesc),
+    },
+    {
+      img: `${IMG}/te-puke-hostel-caravan-closeup-entry.webp`,
+      name: t(translations.acc.vehicle),
+      desc: t(translations.acc.vehicleDesc),
+    },
   ];
 
   const facilities = [
@@ -99,7 +109,7 @@ const Accommodation = () => {
           <div className="mb-16">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4 opacity-0 animate-fade-in-up [animation-delay:200ms]">{t(translations.acc.typesTitle)}</h2>
             <p className="text-foreground/80 mb-8 opacity-0 animate-fade-in-up [animation-delay:250ms]">{t(translations.acc.typesDesc)}</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list" aria-label="Accommodation options">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Accommodation options">
               {accommodations.map((a, i) => (
                  <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
                   <div className="relative overflow-hidden shrink-0 h-64">

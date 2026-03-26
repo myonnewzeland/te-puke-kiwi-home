@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "k3s-hetzner"
+  cluster:
+    server: "https://rancher.luam.ovh/k8s/clusters/c-j5x8v"
+
+users:
+- name: "k3s-hetzner-readonly"
+  user:
+    token: "token-f92hv:hlt6csbgcc7h6dp9zngc462zqcdnmmsf4749pp9zf9bt9ggr7grswh"
+
+contexts:
+- name: "k3s-hetzner-readonly"
+  context:
+    user: "k3s-hetzner-readonly"
+    cluster: "k3s-hetzner"
+
+current-context: "k3s-hetzner-readonly"
