@@ -203,7 +203,7 @@ export const translations = {
   gallery: {
     tvLounge: { en: "TV Lounge — Community Gathering Space", es: "Sala de TV — Espacio Comunitario", de: "TV-Lounge — Gemeinschaftsraum", ja: "テレビラウンジ — コミュニティスペース" },
     caravansGroups: { en: "Swimming Pool", es: "Alberca", de: "Schwimmbad", ja: "プール" },
-    cabinsSmall: { en: "Cabin Exterior", es: "Exterior de la Cabaña", de: "Hütte Außenansicht", ja: "キャビン外観" },
+    cabinsSmall: { en: "House Exterior", es: "Exterior de la Casa", de: "Hausaußenansicht", ja: "家の外観" },
     caravanInterior: { en: "Caravan Interior — Beds & Storage", es: "Interior de Caravana — Camas y Almacenamiento", de: "Wohnwageninneres — Betten & Stauraum", ja: "キャラバン内装 — ベッドと収納" },
     relaxOutdoor: { en: "Basketball Court", es: "Cancha de Baloncesto", de: "Basketballplatz", ja: "バスケットコート" },
     eveningAtmosphere: { en: "Sunset Over the Park", es: "Atardecer Sobre el Parque", de: "Sonnenuntergang über dem Park", ja: "パークに沈む夕日" },
@@ -214,7 +214,7 @@ export const translations = {
     photo1_parkEntrance: { en: "Park Entrance & Welcome Sign", es: "Entrada y Letrero de Bienvenida", de: "Parkeingang & Willkommensschild", ja: "パーク入口とウェルカムサイン" },
     photo3_podExterior: { en: "Pod Exterior — Private Unit", es: "Pod Exterior — Unidad Privada", de: "Pod Außenansicht — Private Einheit", ja: "ポッド外観 — プライベートユニット" },
     photo6_poolArea: { en: "Swimming Pool", es: "Alberca", de: "Schwimmbad", ja: "プール" },
-    photo7_laundryRoom: { en: "Shared Bathroom", es: "Baño Compartido", de: "Gemeinschaftsbad", ja: "共用バスルーム" },
+    photo7_laundryRoom: { en: "Laundry", es: "Lavandería", de: "Wäscherei", ja: "ランドリー" },
     photo10_commonArea: { en: "Shared Kitchen — Sinks & Fridges", es: "Cocina Compartida — Fregaderos y Neveras", de: "Gemeinschaftsküche — Spülen & Kühlschränke", ja: "共用キッチン — シンクと冷蔵庫" },
     photo13_diningArea: { en: "Pod — Private Unit", es: "Pod — Unidad Privada", de: "Pod — Private Einheit", ja: "ポッド — プライベートユニット" },
     photo14_receptionDesk: { en: "Reception Building & Check-in", es: "Edificio de Recepción y Check-in", de: "Rezeptionsgebäude & Check-in", ja: "レセプションビルとチェックイン" },
