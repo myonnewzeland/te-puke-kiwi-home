@@ -98,10 +98,6 @@ const Accommodation = () => {
         <div className="container-narrow">
           <p className="text-lg text-foreground/80 mb-10 max-w-3xl opacity-0 animate-fade-in-up [animation-delay:300ms] mx-auto text-center">{t(translations.acc.introText)}</p>
 
-          {/* SEO paragraph — visible text for "hostel te puke" keyword */}
-          <p className="text-base text-foreground/70 mb-10 max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up [animation-delay:350ms]">
-            Looking for a hostel in Te Puke? Te Puke Holiday Park offers the best hostel-style accommodation in the area — close to kiwifruit orchards, packhouses, and Bay of Plenty attractions.
-          </p>
 
           <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-12 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]" role="alert">
             <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
