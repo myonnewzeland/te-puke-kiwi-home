@@ -4,6 +4,8 @@ import { AlertTriangle, UtensilsCrossed, Bath, WashingMachine, Wifi, Car, TreePi
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import campingTentImg from "@/assets/camping-tent.jpg";
+import vehicleParkingImg from "@/assets/vehicle-parking.jpg";
 
 const IMG = "/images";
 const heroImg = `${IMG}/te-puke-hostel-caravan-interior.webp`;
@@ -31,12 +33,12 @@ const Accommodation = () => {
       desc: t(translations.acc.cabinsDesc),
     },
     {
-      img: `${IMG}/te-puke-park-grounds-green-spaces.webp`,
+      img: campingTentImg,
       name: t(translations.acc.camping),
       desc: t(translations.acc.campingDesc),
     },
     {
-      img: `${IMG}/te-puke-hostel-caravan-closeup-entry.webp`,
+      img: vehicleParkingImg,
       name: t(translations.acc.vehicle),
       desc: t(translations.acc.vehicleDesc),
     },
@@ -96,10 +98,6 @@ const Accommodation = () => {
         <div className="container-narrow">
           <p className="text-lg text-foreground/80 mb-10 max-w-3xl opacity-0 animate-fade-in-up [animation-delay:300ms] mx-auto text-center">{t(translations.acc.introText)}</p>
 
-          {/* SEO paragraph — visible text for "hostel te puke" keyword */}
-          <p className="text-base text-foreground/70 mb-10 max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up [animation-delay:350ms]">
-            Looking for a hostel in Te Puke? Te Puke Holiday Park offers the best hostel-style accommodation in the area — close to kiwifruit orchards, packhouses, and Bay of Plenty attractions.
-          </p>
 
           <div className="flex items-start gap-3 bg-accent rounded-lg p-4 mb-12 border border-border opacity-0 animate-fade-in-up [animation-delay:150ms]" role="alert">
             <AlertTriangle className="h-5 w-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
@@ -114,9 +112,9 @@ const Accommodation = () => {
                  <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
                   <div className="relative overflow-hidden shrink-0 h-64">
                      <img 
-                       src={a.img.replace('.webp', '-800w.webp')}
-                       srcSet={`${a.img.replace('.webp', '-800w.webp')} 800w, ${a.img} 1200w`}
-                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                       src={a.img}
+                       srcSet={a.img.includes('.webp') ? `${a.img.replace('.webp', '-800w.webp')} 800w, ${a.img} 1200w` : undefined}
+                       sizes={a.img.includes('.webp') ? "(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px" : undefined}
                        alt={`${a.name} - Te Puke Holiday Park`} 
                        loading="lazy" 
                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 

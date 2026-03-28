@@ -1,3 +1,18 @@
-import { useToast, toast } from "@/hooks/use-toast";
+// Toast utilities - placeholder
+import { useState, useCallback } from "react";
 
-export { useToast, toast };
+type ToastProps = {
+  title?: string;
+  description?: string;
+  variant?: "default" | "destructive";
+};
+
+const toastState: ToastProps[] = [];
+
+export function toast(props: ToastProps) {
+  toastState.push(props);
+}
+
+export function useToast() {
+  return { toast, toasts: toastState, dismiss: () => {} };
+}
