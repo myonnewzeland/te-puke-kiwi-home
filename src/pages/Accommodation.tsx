@@ -31,12 +31,12 @@ const Accommodation = () => {
       desc: t(translations.acc.cabinsDesc),
     },
     {
-      img: `${IMG}/te-puke-park-grounds-green-spaces.webp`,
+      img: campingTentImg,
       name: t(translations.acc.camping),
       desc: t(translations.acc.campingDesc),
     },
     {
-      img: `${IMG}/te-puke-hostel-caravan-closeup-entry.webp`,
+      img: vehicleParkingImg,
       name: t(translations.acc.vehicle),
       desc: t(translations.acc.vehicleDesc),
     },
