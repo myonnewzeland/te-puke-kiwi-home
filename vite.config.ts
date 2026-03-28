@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { compression } from "vite-plugin-compression2";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 /**
  * Vite Build Configuration — Maximum Performance
  *
@@ -67,6 +69,7 @@ export default defineConfig({
       exclude: [/\.(png|jpg|jpeg|webp|gif|svg|woff2|woff|ico|br|gz)$/],
       threshold: 512,
     }),
+    cloudflare()
   ],
 
   resolve: {
