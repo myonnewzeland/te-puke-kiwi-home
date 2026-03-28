@@ -112,9 +112,9 @@ const Accommodation = () => {
                  <article key={a.name} className="group bg-card rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl opacity-0 animate-scale-in transition-all duration-500 flex flex-col" style={{ animationDelay: `${400 + i * 150}ms` }} role="listitem">
                   <div className="relative overflow-hidden shrink-0 h-64">
                      <img 
-                       src={a.img.replace('.webp', '-800w.webp')}
-                       srcSet={`${a.img.replace('.webp', '-800w.webp')} 800w, ${a.img} 1200w`}
-                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                       src={a.img}
+                       srcSet={a.img.includes('.webp') ? `${a.img.replace('.webp', '-800w.webp')} 800w, ${a.img} 1200w` : undefined}
+                       sizes={a.img.includes('.webp') ? "(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px" : undefined}
                        alt={`${a.name} - Te Puke Holiday Park`} 
                        loading="lazy" 
                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
