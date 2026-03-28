@@ -4,6 +4,8 @@ import { AlertTriangle, UtensilsCrossed, Bath, WashingMachine, Wifi, Car, TreePi
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import campingTentImg from "@/assets/camping-tent.jpg";
+import vehicleParkingImg from "@/assets/vehicle-parking.jpg";
 
 const IMG = "/images";
 const heroImg = `${IMG}/te-puke-hostel-caravan-interior.webp`;
