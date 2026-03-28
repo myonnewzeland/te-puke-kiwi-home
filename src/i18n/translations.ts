@@ -15,7 +15,7 @@ export const translations = {
 
   // ── Footer ──
   footer: {
-    tagline: { en: "Te Puke's hostel & holiday park — your home away from home in the Kiwifruit Capital.", es: "Tu hogar lejos de casa en la Capital Mundial del Kiwi.", de: "Dein Zuhause in der Kiwifrucht-Hauptstadt der Welt.", ja: "世界のキウイフルーツの首都で、あなたの第二の故郷。" },
+    tagline: { en: "Te Puke Holiday Park — your home away from home in the Kiwifruit Capital.", es: "Tu hogar lejos de casa en la Capital Mundial del Kiwi.", de: "Dein Zuhause in der Kiwifrucht-Hauptstadt der Welt.", ja: "世界のキウイフルーツの首都で、あなたの第二の故郷。" },
     navigate: { en: "Navigate", es: "Navegar", de: "Navigation", ja: "ナビゲーション" },
     contact: { en: "Contact", es: "Contacto", de: "Kontakt", ja: "お問い合わせ" },
     rights: { en: "All Rights Reserved.", es: "Todos los Derechos Reservados.", de: "Alle Rechte vorbehalten.", ja: "全著作権所有。" },
